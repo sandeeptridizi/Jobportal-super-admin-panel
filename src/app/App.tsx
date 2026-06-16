@@ -34,23 +34,19 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  // Handle login
   const handleLogin = () => {
     setIsAuthenticated(true);
   };
 
-  // Handle signup
   const handleSignup = () => {
     setIsAuthenticated(true);
   };
 
-  // Handle logout
   const handleLogout = () => {
     setIsAuthenticated(false);
     setAuthView('login');
   };
 
-  // If not authenticated, show login or signup
   if (!isAuthenticated) {
     if (authView === 'login') {
       return (
@@ -139,7 +135,6 @@ export default function App() {
             position: 'relative'
           }}
         >
-          {/* Yellow accent wave - top */}
           <div 
             style={{
               position: 'absolute',
@@ -155,7 +150,6 @@ export default function App() {
             }}
           />
           
-          {/* Dark blue accent - bottom left */}
           <div 
             style={{
               position: 'absolute',
@@ -171,7 +165,6 @@ export default function App() {
             }}
           />
 
-          {/* Yellow accent - middle right */}
           <div 
             style={{
               position: 'absolute',
@@ -187,7 +180,6 @@ export default function App() {
             }}
           />
 
-          {/* Subtle grid pattern overlay */}
           <div 
             style={{
               position: 'absolute',
@@ -206,7 +198,6 @@ export default function App() {
             }}
           />
           
-          {/* Content wrapper */}
           <div style={{ position: 'relative', zIndex: 1 }}>
             {renderPage()}
           </div>

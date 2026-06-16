@@ -29,7 +29,6 @@ export function Employees() {
   const [filterStatus, setFilterStatus] = useState<string>('all');
   const [showFilters, setShowFilters] = useState(false);
 
-  // Sample employee data
   const [employees, setEmployees] = useState<Employee[]>([
     {
       id: 1,
@@ -274,7 +273,6 @@ export function Employees() {
       .slice(0, 2);
   };
 
-  // Employee List View
   if (viewMode === 'list') {
     return (
       <div className="space-y-6">
@@ -315,7 +313,6 @@ export function Employees() {
           </button>
         </div>
 
-        {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="flex items-center justify-between mb-2">
@@ -364,7 +361,6 @@ export function Employees() {
           </div>
         </div>
 
-        {/* Search and Filters */}
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{ color: '#6f6f6f' }} />
@@ -426,7 +422,6 @@ export function Employees() {
           </div>
         )}
 
-        {/* Employee Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {filteredEmployees.map((employee) => (
             <div
@@ -510,7 +505,6 @@ export function Employees() {
     );
   }
 
-  // Employee Details View
   if (viewMode === 'details' && selectedEmployee) {
     return (
       <div className="space-y-6">
@@ -543,7 +537,6 @@ export function Employees() {
           </div>
         </div>
 
-        {/* Employee Header */}
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-start gap-6">
             <div 
@@ -572,9 +565,7 @@ export function Employees() {
           </div>
         </div>
 
-        {/* Employee Details */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Contact Information */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Contact Information</h3>
             <div className="space-y-4">
@@ -608,7 +599,6 @@ export function Employees() {
             </div>
           </div>
 
-          {/* Employment Details */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Employment Details</h3>
             <div className="space-y-4">
@@ -648,7 +638,6 @@ export function Employees() {
             </div>
           </div>
 
-          {/* Additional Information */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Additional Information</h3>
             <div className="space-y-4">
@@ -673,7 +662,6 @@ export function Employees() {
             </div>
           </div>
 
-          {/* Login Credentials */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Login Credentials</h3>
             <div className="space-y-4">
@@ -723,7 +711,6 @@ export function Employees() {
             </div>
           </div>
 
-          {/* Performance Summary */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Quick Stats</h3>
             <div className="space-y-3">
@@ -752,7 +739,6 @@ export function Employees() {
     );
   }
 
-  // Create/Edit Employee Form
   if (viewMode === 'create' || viewMode === 'edit') {
     return (
       <div className="space-y-6">
@@ -785,7 +771,6 @@ export function Employees() {
             viewMode === 'create' ? handleCreateEmployee() : handleUpdateEmployee();
           }}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Full Name */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Full Name <span style={{ color: '#FFC300' }}>*</span>
@@ -800,7 +785,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Email */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Email <span style={{ color: '#FFC300' }}>*</span>
@@ -815,7 +799,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Phone */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Phone <span style={{ color: '#FFC300' }}>*</span>
@@ -830,7 +813,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Employee ID */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Employee ID <span style={{ color: '#FFC300' }}>*</span>
@@ -845,7 +827,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Role */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Role <span style={{ color: '#FFC300' }}>*</span>
@@ -860,7 +841,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Department */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Department <span style={{ color: '#FFC300' }}>*</span>
@@ -878,7 +858,6 @@ export function Employees() {
                 </select>
               </div>
 
-              {/* Location */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Location <span style={{ color: '#FFC300' }}>*</span>
@@ -893,7 +872,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Join Date */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Join Date <span style={{ color: '#FFC300' }}>*</span>
@@ -907,7 +885,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Salary */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Annual Salary <span style={{ color: '#FFC300' }}>*</span>
@@ -922,7 +899,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Manager */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Reports To <span style={{ color: '#FFC300' }}>*</span>
@@ -937,7 +913,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Status */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Status <span style={{ color: '#FFC300' }}>*</span>
@@ -954,7 +929,6 @@ export function Employees() {
                 </select>
               </div>
 
-              {/* Login ID */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Login ID <span style={{ color: '#FFC300' }}>*</span>
@@ -969,7 +943,6 @@ export function Employees() {
                 />
               </div>
 
-              {/* Password */}
               <div>
                 <label className="block mb-2" style={{ color: '#d3d3d3' }}>
                   Password <span style={{ color: '#FFC300' }}>*</span>

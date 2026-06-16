@@ -52,7 +52,6 @@ export function ApplicationsManagement() {
         <p className="text-gray-600 mt-1">Track and manage all job applications</p>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <button
           onClick={() => setActiveTab('all')}
@@ -101,7 +100,6 @@ export function ApplicationsManagement() {
         </button>
       </div>
 
-      {/* Search and Filters */}
       <div className="bg-white rounded-lg p-4 border border-gray-200">
         <div className="flex gap-4 flex-wrap">
           <div className="flex-1 min-w-[300px] relative">
@@ -121,7 +119,6 @@ export function ApplicationsManagement() {
         </div>
       </div>
 
-      {/* Applications Table */}
       <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -195,7 +192,6 @@ export function ApplicationsManagement() {
         </div>
       </div>
 
-      {/* Application Details Modal */}
       {selectedApp && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="bg-white rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto">

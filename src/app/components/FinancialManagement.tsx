@@ -16,7 +16,6 @@ export function Income() {
   const [timeRange, setTimeRange] = useState<'week' | 'month' | 'year'>('month');
   const [selectedRevenue, setSelectedRevenue] = useState<'all' | 'user-pro' | 'job-pro' | 'freelancer-credits'>('all');
 
-  // Revenue Stats
   const revenueStats = {
     total: 124580,
     monthly: 38450,
@@ -27,7 +26,6 @@ export function Income() {
     freelancerCredits: 26640,
   };
 
-  // Monthly Revenue Trend Data
   const monthlyRevenueData = [
     { month: 'Jan', userPro: 12500, jobPro: 15200, freelancerCredits: 8400, total: 36100 },
     { month: 'Feb', userPro: 13800, jobPro: 16500, freelancerCredits: 7800, total: 38100 },
@@ -37,14 +35,12 @@ export function Income() {
     { month: 'Jun', userPro: 18100, jobPro: 19800, freelancerCredits: 11400, total: 49300 },
   ];
 
-  // Revenue Distribution Data
   const revenueDistribution = [
     { name: 'User Pro', value: revenueStats.userPro, color: '#FFC300' },
     { name: 'Job Pro', value: revenueStats.jobPro, color: '#023047' },
     { name: 'Freelancer Credits', value: revenueStats.freelancerCredits, color: '#6f6f6f' },
   ];
 
-  // Subscription Plans
   const subscriptionPlans = {
     userPro: [
       { name: 'Basic Pro', price: 9.99, subscribers: 845, revenue: 8440 },
@@ -63,7 +59,6 @@ export function Income() {
     ],
   };
 
-  // Recent Transactions
   const transactions: Transaction[] = [
     { id: 1, type: 'user-pro', userName: 'John Doe', amount: 19.99, date: '2024-12-08', status: 'completed', plan: 'Premium Pro' },
     { id: 2, type: 'job-pro', userName: 'Tech Corp', amount: 399, date: '2024-12-08', status: 'completed', plan: 'Job Pack (5)' },
@@ -144,7 +139,6 @@ export function Income() {
         </div>
       </div>
 
-      {/* Time Range Selector */}
       <div className="flex gap-3">
         <button
           onClick={() => setTimeRange('week')}
@@ -181,7 +175,6 @@ export function Income() {
         </button>
       </div>
 
-      {/* Revenue Overview Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-2">
@@ -232,7 +225,6 @@ export function Income() {
         </div>
       </div>
 
-      {/* Revenue Trend Chart */}
       <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex items-center justify-between mb-6">
           <h2 style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Revenue Trends</h2>
@@ -255,9 +247,7 @@ export function Income() {
         </ResponsiveContainer>
       </div>
 
-      {/* Revenue Distribution & Subscription Plans */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Revenue Distribution Pie Chart */}
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <h2 className="mb-6" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Revenue Distribution</h2>
           <ResponsiveContainer width="100%" height={300}>
@@ -292,11 +282,9 @@ export function Income() {
           </div>
         </div>
 
-        {/* Subscription Plans Overview */}
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <h2 className="mb-6" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Top Performing Plans</h2>
           <div className="space-y-4">
-            {/* User Pro Plans */}
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Crown className="w-4 h-4" style={{ color: '#FFC300' }} />
@@ -316,7 +304,6 @@ export function Income() {
               ))}
             </div>
 
-            {/* Job Pro Plans */}
             <div>
               <div className="flex items-center gap-2 mb-2 mt-4">
                 <Briefcase className="w-4 h-4" style={{ color: '#023047' }} />
@@ -341,7 +328,6 @@ export function Income() {
         </div>
       </div>
 
-      {/* Recent Transactions */}
       <div className="rounded-lg overflow-hidden" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="p-6 flex items-center justify-between" style={{ borderBottom: '1px solid #6f6f6f' }}>
           <h2 style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Recent Transactions</h2>

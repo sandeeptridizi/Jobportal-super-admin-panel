@@ -255,7 +255,6 @@ export function Institutes() {
     avgConversionRate: Math.round(institutes.filter(i => i.status === 'active').reduce((sum, i) => sum + i.conversionRate, 0) / institutes.filter(i => i.status === 'active').length)
   };
 
-  // Details View
   if (viewMode === 'details' && selectedInstitute) {
     return (
       <div className="space-y-6">
@@ -351,7 +350,6 @@ export function Institutes() {
               </div>
             </div>
 
-            {/* Specializations */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
               <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Specializations</h3>
               <div className="flex items-center gap-2 flex-wrap">
@@ -363,7 +361,6 @@ export function Institutes() {
               </div>
             </div>
 
-            {/* Active Courses */}
             {selectedInstitute.activeCourses && selectedInstitute.activeCourses.length > 0 && (
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <div className="flex items-center gap-2 mb-4">
@@ -403,7 +400,6 @@ export function Institutes() {
               </div>
             )}
 
-            {/* Tutors/Instructors */}
             {selectedInstitute.tutors && selectedInstitute.tutors.length > 0 && (
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <div className="flex items-center gap-2 mb-4">
@@ -449,7 +445,6 @@ export function Institutes() {
               </div>
             )}
 
-            {/* Contact Information */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Contact Information</h3>
               <div className="space-y-3">
@@ -471,7 +466,6 @@ export function Institutes() {
             </div>
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
             {selectedInstitute.status === 'active' && (
               <>
@@ -548,7 +542,6 @@ export function Institutes() {
     );
   }
 
-  // List View
   return (
     <div className="space-y-6">
       <div>
@@ -558,7 +551,6 @@ export function Institutes() {
         <p style={{ color: '#d3d3d3' }}>Manage coaching institutes and personal trainers offering virtual/physical training</p>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-4 gap-4">
         <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
           <div className="flex items-center justify-between mb-2">
@@ -590,7 +582,6 @@ export function Institutes() {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
@@ -662,7 +653,6 @@ export function Institutes() {
         </div>
       </div>
 
-      {/* Institutes Grid */}
       <div className="grid grid-cols-2 gap-6">
         {filteredInstitutes.map((institute) => (
           <div 

@@ -237,7 +237,6 @@ const filteredData = data.filter(item => {
 
 ### 1. Dynamic Data Extraction
 ```typescript
-// Automatically extracts unique values from data
 const extractOptions = (data, field) => {
   return [...new Set(data.map(item => item[field]))];
 };
@@ -245,13 +244,11 @@ const extractOptions = (data, field) => {
 
 ### 2. Live Count Updates
 ```typescript
-// Counts update based on current data
 const count = data.filter(item => item.status === 'active').length;
 ```
 
 ### 3. Combined Filtering
 ```typescript
-// Search + Multiple filters work together (AND logic)
 const results = data.filter(item => 
   matchesSearch && matchesFilter1 && matchesFilter2
 );
@@ -339,10 +336,8 @@ const debouncedSearch = useDebounce(searchTerm, 300);
 ## 📝 Usage Example
 
 ```tsx
-// 1. Import FilterModal
 import { FilterModal } from './FilterModal';
 
-// 2. Set up state
 const [filters, setFilters] = useState({
   status: 'all',
   plan: 'all',
@@ -350,7 +345,6 @@ const [filters, setFilters] = useState({
 });
 const [showFilterModal, setShowFilterModal] = useState(false);
 
-// 3. Create filter groups
 const filterGroups = [
   {
     id: 'status',
@@ -363,7 +357,6 @@ const filterGroups = [
   }
 ];
 
-// 4. Handle filter changes
 const handleFilterChange = (filterId, value) => {
   setFilters(prev => ({ ...prev, [filterId]: value }));
 };
@@ -372,14 +365,12 @@ const handleReset = () => {
   setFilters({ status: 'all', plan: 'all', location: 'all' });
 };
 
-// 5. Apply filters to data
 const filteredData = data.filter(item => {
   return (filters.status === 'all' || item.status === filters.status) &&
          (filters.plan === 'all' || item.plan === filters.plan) &&
          (filters.location === 'all' || item.location === filters.location);
 });
 
-// 6. Render
 <button onClick={() => setShowFilterModal(true)}>
   <Filter /> Filters
 </button>

@@ -10,11 +10,11 @@ This document outlines the comprehensive filter implementation across all major 
 ### Current Filters:
 ```typescript
 const [filters, setFilters] = useState({
-  type: 'all',          // Full-time | Part-time
-  plan: 'all',          // Pro | Quick Recruit | Free
-  category: 'all',      // Technology | Management | Design | Sales | Marketing | Finance | HR | Hospitality | Customer Service
-  location: 'all',      // Extracted from data (New York, San Francisco, Boston, Austin, Chicago, Seattle, Remote)
-  status: 'all'         // active | pending | closed
+  type: 'all',         
+  plan: 'all',          
+  category: 'all',      
+  location: 'all',      
+  status: 'all'         
 });
 ```
 
@@ -47,12 +47,12 @@ const filteredJobs = jobs.filter(job => {
 ### Required Filters:
 ```typescript
 const [filters, setFilters] = useState({
-  duration: 'all',      // 1-3 months | 3-6 months | 6+ months
-  department: 'all',    // Engineering | Design | Marketing | Sales | HR | Operations | Finance
-  status: 'all',        // active | pending | closed
-  plan: 'all',          // Pro | Quick Recruit | Free
-  location: 'all',      // Extracted from data
-  stipend: 'all'        // Paid | Unpaid | Performance-based
+  duration: 'all',      
+  department: 'all',    
+  status: 'all',        
+  plan: 'all',          
+  location: 'all',      
+  stipend: 'all'        
 });
 ```
 
@@ -69,12 +69,12 @@ const [filters, setFilters] = useState({
 ### Required Filters:
 ```typescript
 const [filters, setFilters] = useState({
-  category: 'all',      // Web Development | Mobile Development | Design | Content Writing | Marketing | Video Editing | Data Entry
-  budget: 'all',        // $0-$500 | $500-$1000 | $1000-$5000 | $5000+
-  status: 'all',        // open | in-progress | completed | cancelled
-  duration: 'all',      // Less than 1 week | 1-2 weeks | 2-4 weeks | 1-3 months | 3+ months
-  skillLevel: 'all',    // beginner | intermediate | expert
-  location: 'all'       // Remote | On-site | Hybrid
+  category: 'all',      
+  budget: 'all',        
+  status: 'all',        
+  duration: 'all',      
+  skillLevel: 'all',    
+  location: 'all'       
 });
 ```
 
@@ -89,13 +89,13 @@ const [filters, setFilters] = useState({
 ### Required Filters:
 ```typescript
 const [filters, setFilters] = useState({
-  industry: 'all',      // Technology | Healthcare | Finance | Design | Data & Analytics | Manufacturing | Retail | Consulting
-  plan: 'all',          // Pro | Quick Recruit | Complete Recruit | Free
-  location: 'all',      // Extracted unique locations
-  status: 'all',        // active | pending | suspended
-  verified: 'all',      // true | false
-  isPro: 'all',         // true | false
-  size: 'all'           // Small | Medium | Large
+  industry: 'all',      
+  plan: 'all',          
+  location: 'all',      
+  status: 'all',        
+  verified: 'all',      
+  isPro: 'all',         
+  size: 'all'           
 });
 ```
 
@@ -115,24 +115,22 @@ const [filters, setFilters] = useState({
 ### Required Filters:
 ```typescript
 const [filters, setFilters] = useState({
-  plan: 'all',          // Free | Elite Plan (₹99) | Pro Plan (₹199)
-  location: 'all',      // Extracted from data
-  status: 'all',        // active | inactive | suspended
-  verified: 'all',      // true | false (BGV completed)
-  isPro: 'all',         // true | false (paid user)
-  skills: 'all',        // React | Node.js | Python | Java | etc.
-  experience: 'all',    // 0-2 years | 2-5 years | 5-10 years | 10+ years
-  dateRange: 'all'      // Last 7 days | Last 30 days | Last 90 days | All time
+  plan: 'all',          
+  location: 'all',      
+  status: 'all',        
+  verified: 'all',      
+  isPro: 'all',         
+  skills: 'all',        
+  experience: 'all',    
+  dateRange: 'all'      
 });
 ```
 
 ### Data Extraction:
 ```typescript
-// Extract unique values
 const uniqueLocations = [...new Set(users.map(u => u.location))];
 const uniqueSkills = [...new Set(users.flatMap(u => u.skills || []))];
 
-// Count per filter
 const counts = {
   plan: {
     'Elite Plan': users.filter(u => u.plan === 'Elite Plan').length,
@@ -153,11 +151,11 @@ const counts = {
 ### Required Filters:
 ```typescript
 const [filters, setFilters] = useState({
-  status: 'all',        // new | contacted | interested | not-interested
-  source: 'all',        // LinkedIn | Indeed | Referral | Job Fair | Website | Cold Outreach | Conference | Partnership
-  assignedTo: 'all',    // Employee names | Unassigned
-  location: 'all',      // Extracted from data
-  industry: 'all'       // For companies only
+  status: 'all',        
+  source: 'all',        
+  assignedTo: 'all',    
+  location: 'all',      
+  industry: 'all'       
 });
 ```
 
@@ -186,19 +184,19 @@ const filteredCompanies = coldCompanies.filter(company => {
 ### Revenue Analytics Tab Filters:
 ```typescript
 const [filters, setFilters] = useState({
-  timeRange: '30days',  // 7days | 30days | 90days | 1year | all
-  planType: 'all',      // Companies | Users | Freelancers | All
-  paymentStatus: 'all'  // completed | pending | failed
+  timeRange: '30days',  
+  planType: 'all',      
+  paymentStatus: 'all'  
 });
 ```
 
 ### Update Plans Tab Filters:
 ```typescript
 const [filters, setFilters] = useState({
-  customerType: 'all',  // company | user | freelancer
-  currentPlan: 'all',   // All plan types
-  status: 'all',        // active | expired | cancelled
-  nextRenewal: 'all'    // This week | This month | Next 3 months | Later
+  customerType: 'all',  
+  currentPlan: 'all',   
+  status: 'all',        
+  nextRenewal: 'all'    
 });
 ```
 
@@ -209,10 +207,10 @@ const [filters, setFilters] = useState({
 ### Required Filters:
 ```typescript
 const [filters, setFilters] = useState({
-  department: 'all',    // Sales | Marketing | Operations | HR | IT | Finance | Customer Support
-  role: 'all',          // Extracted from data
-  status: 'all',        // active | on-leave | inactive
-  accessLevel: 'all'    // admin | manager | employee
+  department: 'all',    
+  role: 'all',          
+  status: 'all',        
+  accessLevel: 'all'    
 });
 ```
 
@@ -224,9 +222,9 @@ const [filters, setFilters] = useState({
 ```typescript
 const [filters, setFilters] = useState({
   category: 'all',
-  type: 'all',          // Full-time | Part-time
+  type: 'all',          
   status: 'all',
-  dateRange: '30days',  // 7days | 30days | 90days | custom
+  dateRange: '30days',  
   plan: 'all'
 });
 ```
@@ -353,10 +351,8 @@ const handleResetFilters = () => {
 ```tsx
 import { FilterModal } from './FilterModal';
 
-// In component:
 const [showFilterModal, setShowFilterModal] = useState(false);
 
-// Create filter groups
 const filterGroups = [
   {
     id: 'status',
@@ -368,10 +364,8 @@ const filterGroups = [
       { label: 'Closed', value: 'closed', count: jobs.filter(j => j.status === 'closed').length }
     ]
   },
-  // ... more filter groups
 ];
 
-// In JSX:
 <button onClick={() => setShowFilterModal(true)}>
   <Filter /> Filters
 </button>
@@ -404,12 +398,10 @@ const filterGroups = [
 
 ### Performance Optimization:
 ```typescript
-// Memoize filter options
 const filterOptions = useMemo(() => {
   return extractFilterOptions(data, 'status');
 }, [data]);
 
-// Memoize filtered data
 const filteredData = useMemo(() => {
   return applyFilters(data, filters);
 }, [data, filters]);

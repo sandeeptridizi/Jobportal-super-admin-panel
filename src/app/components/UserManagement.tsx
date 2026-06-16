@@ -58,7 +58,6 @@ export function UserManagement() {
     return matchesSearch && matchesTab && matchesFilters;
   });
 
-  // Filter groups for modal
   const filterGroups = [
     {
       id: 'status',
@@ -122,7 +121,6 @@ export function UserManagement() {
     employers: users.filter(u => u.role === 'employer').length,
   };
 
-  // If a user is selected, show the detail view
   if (selectedUserId !== null) {
     return <UserDetailView userId={selectedUserId} onBack={() => setSelectedUserId(null)} />;
   }
@@ -156,7 +154,6 @@ export function UserManagement() {
         </div>
       </div>
 
-      {/* Tabs */}
       <div style={{ borderBottom: '1px solid #6f6f6f' }}>
         <div className="flex gap-6">
           <button
@@ -192,7 +189,6 @@ export function UserManagement() {
         </div>
       </div>
 
-      {/* Search and Filters */}
       <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex gap-4 flex-wrap">
           <div className="flex-1 min-w-[300px] relative">
@@ -213,7 +209,6 @@ export function UserManagement() {
         </div>
       </div>
 
-      {/* Users Table */}
       <div className="rounded-lg overflow-hidden" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -325,7 +320,6 @@ export function UserManagement() {
         </div>
       </div>
 
-      {/* Filter Modal */}
       <FilterModal
         isOpen={showFilterModal}
         onClose={() => setShowFilterModal(false)}

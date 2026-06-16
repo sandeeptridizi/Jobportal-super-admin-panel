@@ -112,7 +112,7 @@ Click to expand:
 {
   id: 'status',
   label: 'Status',
-  type: 'buttons', // or omit (default)
+  type: 'buttons', 
   options: [...]
 }
 ```
@@ -141,29 +141,27 @@ const filterGroups = [
   {
     id: 'category',
     label: 'Category',
-    type: 'search',  // ← Search-based
+    type: 'search',  
     options: [
       { label: 'All', value: 'all', count: 12 },
       { label: 'Technology', value: 'Technology', count: 4 },
       { label: 'Management', value: 'Management', count: 1 },
-      // ... more categories
     ]
   },
   {
     id: 'location',
     label: 'Location',
-    type: 'search',  // ← Search-based
+    type: 'search',  
     options: [
       { label: 'All', value: 'all', count: 12 },
       { label: 'New York, NY', value: 'New York, NY', count: 2 },
       { label: 'San Francisco, CA', value: 'San Francisco, CA', count: 1 },
-      // ... more locations
     ]
   },
   {
     id: 'type',
     label: 'Job Type',
-    type: 'dropdown',  // ← Dropdown select
+    type: 'dropdown',  
     options: [
       { label: 'All Types', value: 'all', count: 12 },
       { label: 'Full-time', value: 'Full-time', count: 10 },
@@ -173,7 +171,7 @@ const filterGroups = [
   {
     id: 'status',
     label: 'Status',
-    type: 'buttons',  // ← Button-based (default)
+    type: 'buttons',  
     options: [
       { label: 'All', value: 'all', count: 12 },
       { label: 'Active', value: 'active', count: 10 },
@@ -192,7 +190,6 @@ const filterGroups = [
 ```typescript
 const [searchTerms, setSearchTerms] = useState<Record<string, string>>({});
 
-// Filter options based on search term
 const filteredOptions = group.options.filter(option => 
   !searchTerms[group.id] || 
   option.label.toLowerCase().includes(searchTerms[group.id].toLowerCase())

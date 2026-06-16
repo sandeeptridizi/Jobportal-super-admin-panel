@@ -13,7 +13,6 @@ export function Header({ toggleSidebar, sidebarOpen, setCurrentPage, onLogout }:
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  // Close menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
@@ -95,7 +94,6 @@ export function Header({ toggleSidebar, sidebarOpen, setCurrentPage, onLogout }:
               </div>
             </button>
 
-            {/* Profile Dropdown Menu */}
             {showProfileMenu && (
               <div
                 className="absolute right-0 mt-2 w-48 rounded-lg shadow-lg overflow-hidden"

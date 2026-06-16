@@ -209,7 +209,6 @@ export function Notifications() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-6">
           <h1 
@@ -247,7 +246,6 @@ export function Notifications() {
         </button>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-2">
@@ -290,7 +288,6 @@ export function Notifications() {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <button
@@ -344,7 +341,6 @@ export function Notifications() {
         </select>
       </div>
 
-      {/* Notifications List */}
       <div className="space-y-3">
         {filteredNotifications.length === 0 ? (
           <div className="rounded-lg p-12 text-center" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>

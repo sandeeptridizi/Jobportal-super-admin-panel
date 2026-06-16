@@ -27,7 +27,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
   const [selectedApplicant, setSelectedApplicant] = useState<Applicant | null>(null);
   const [filterStatus, setFilterStatus] = useState<string>('all');
 
-  // Mock job data
   const job = {
     id: jobId,
     title: 'Senior React Developer',
@@ -58,7 +57,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
     benefits: ['Health Insurance', 'Remote Work', '401(k)', 'Paid Time Off', 'Professional Development']
   };
 
-  // Mock applicants data
   const applicants: Applicant[] = [
     {
       id: 1,
@@ -142,7 +140,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
     },
   ];
 
-  // Mock matched profiles data
   const matchedProfiles: Applicant[] = [
     {
       id: 101,
@@ -208,7 +205,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div>
         <button 
           onClick={onBack}
@@ -243,7 +239,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
         </div>
       </div>
 
-      {/* Job Details Card */}
       <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
           <div className="flex items-center gap-3">
@@ -327,7 +322,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
         </div>
       </div>
 
-      {/* Applicants Section */}
       <div className="rounded-lg" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="p-6" style={{ borderBottom: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-4">
@@ -338,7 +332,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
             </button>
           </div>
 
-          {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-5 gap-3">
             <div className="rounded-lg p-3 text-center" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <p style={{ color: '#d3d3d3', fontSize: '0.875rem' }}>Total</p>
@@ -362,7 +355,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
             </div>
           </div>
 
-          {/* Filters */}
           <div className="flex gap-2 mt-4 flex-wrap">
             <button onClick={() => setFilterStatus('all')} className="px-4 py-2 rounded-lg transition-colors" style={{ backgroundColor: filterStatus === 'all' ? '#023047' : '#6f6f6f', color: '#f6f6f6' }}>All</button>
             <button onClick={() => setFilterStatus('pending')} className="px-4 py-2 rounded-lg transition-colors" style={{ backgroundColor: filterStatus === 'pending' ? '#023047' : '#6f6f6f', color: '#f6f6f6' }}>Pending</button>
@@ -372,7 +364,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
           </div>
         </div>
 
-        {/* Applicants List */}
         <div className="p-6">
           <div className="space-y-3">
             {filteredApplicants.map((applicant) => (
@@ -469,7 +460,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
           </div>
         </div>
 
-        {/* Matched Profiles Section */}
         <div className="p-6" style={{ borderTop: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-4">
             <div>
@@ -573,7 +563,6 @@ export function JobDetailView({ jobId, onBack }: JobDetailViewProps) {
         </div>
       </div>
 
-      {/* Applicant Profile Modal */}
       {selectedApplicant && (
         <div className="fixed inset-0 flex items-center justify-center p-4 z-50" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
           <div className="rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>

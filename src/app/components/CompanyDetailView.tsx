@@ -123,7 +123,6 @@ export function CompanyDetailView({ companyId, onBack, onViewJob }: CompanyDetai
         </div>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-2">
@@ -163,7 +162,6 @@ export function CompanyDetailView({ companyId, onBack, onViewJob }: CompanyDetai
         </div>
       </div>
 
-      {/* Tabs */}
       <div style={{ borderBottom: '1px solid #6f6f6f' }}>
         <div className="flex gap-6">
           <button
@@ -189,7 +187,6 @@ export function CompanyDetailView({ companyId, onBack, onViewJob }: CompanyDetai
         </div>
       </div>
 
-      {/* Overview Tab */}
       {activeTab === 'overview' && (
         <div className="space-y-6">
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -248,7 +245,6 @@ export function CompanyDetailView({ companyId, onBack, onViewJob }: CompanyDetai
             <p style={{ color: '#d3d3d3' }}>{company.description}</p>
           </div>
 
-          {/* Company Registration & Legal Information */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <h3 className="mb-4" style={{ color: '#FFC300' }}>Registration & Legal Information</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -303,7 +299,6 @@ export function CompanyDetailView({ companyId, onBack, onViewJob }: CompanyDetai
             </div>
           </div>
 
-          {/* Office Timings & Working Schedule */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h3 className="mb-4" style={{ color: '#FFC300' }}>Office Timings</h3>
@@ -332,7 +327,6 @@ export function CompanyDetailView({ companyId, onBack, onViewJob }: CompanyDetai
             </div>
           </div>
 
-          {/* LinkedIn & Social Links */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <h3 className="mb-4" style={{ color: '#FFC300' }}>Social Media & Professional Links</h3>
             <div className="flex items-center gap-3">
@@ -401,7 +395,6 @@ export function CompanyDetailView({ companyId, onBack, onViewJob }: CompanyDetai
         </div>
       )}
 
-      {/* Jobs Tab */}
       {activeTab === 'jobs' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">

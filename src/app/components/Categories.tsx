@@ -56,7 +56,6 @@ export function Categories() {
         </button>
       </div>
 
-      {/* Categories Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {categories.map((category) => (
           <div key={category.id} className="rounded-lg p-6 transition-shadow" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -90,7 +89,6 @@ export function Categories() {
         ))}
       </div>
 
-      {/* Add/Edit Category Modal */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center p-4 z-50" style={{ backgroundColor: 'rgba(2, 48, 71, 0.8)' }}>
           <div className="rounded-lg max-w-md w-full" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>

@@ -143,7 +143,6 @@ export function Tutors() {
     }
   ];
 
-  // Generate time slots for the selected tutor
   const generateTimeSlots = (tutorId: number): TimeSlot[] => {
     const slots: TimeSlot[] = [];
     const dates = ['2026-01-10', '2026-01-11', '2026-01-12', '2026-01-13', '2026-01-14'];
@@ -156,7 +155,7 @@ export function Tutors() {
           id: id++,
           date,
           time,
-          available: Math.random() > 0.3 // 70% of slots are available
+          available: Math.random() > 0.3 
         });
       });
     });
@@ -180,7 +179,6 @@ export function Tutors() {
     totalSessions: tutors.reduce((sum, t) => sum + t.totalSessions, 0)
   };
 
-  // Booking View
   if (viewMode === 'booking' && selectedTutor) {
     const allSlots = generateTimeSlots(selectedTutor.id);
     const dates = [...new Set(allSlots.map(slot => slot.date))];
@@ -250,7 +248,6 @@ export function Tutors() {
               </div>
             </div>
 
-            {/* Select Time Slot */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
               <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Select Time Slot (1 hour)</h3>
               <div className="grid grid-cols-4 gap-3">
@@ -291,7 +288,6 @@ export function Tutors() {
               </div>
             </div>
 
-            {/* Session Details */}
             {selectedSlot && (
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
                 <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Session Details</h3>
@@ -323,7 +319,6 @@ export function Tutors() {
             )}
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
               <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Booking Summary</h3>
@@ -396,7 +391,6 @@ export function Tutors() {
     );
   }
 
-  // Details View
   if (viewMode === 'details' && selectedTutor) {
     return (
       <div className="space-y-6">
@@ -420,7 +414,6 @@ export function Tutors() {
 
         <div className="grid grid-cols-3 gap-6">
           <div className="col-span-2 space-y-6">
-            {/* Profile Overview */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
               <div className="flex items-start gap-6 mb-6">
                 <div className="w-24 h-24 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(255, 195, 0, 0.2)', color: '#FFC300', fontSize: '2.5rem', fontWeight: '700' }}>
@@ -473,7 +466,6 @@ export function Tutors() {
               </div>
             </div>
 
-            {/* Specializations */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
               <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Areas of Expertise</h3>
               <div className="flex items-center gap-2 flex-wrap">
@@ -485,7 +477,6 @@ export function Tutors() {
               </div>
             </div>
 
-            {/* Availability */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Availability</h3>
               <div className="flex items-center gap-3">
@@ -495,7 +486,6 @@ export function Tutors() {
             </div>
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
             {selectedTutor.status === 'active' && (
               <>
@@ -571,7 +561,6 @@ export function Tutors() {
     );
   }
 
-  // List View
   return (
     <div className="space-y-6">
       <div>
@@ -581,7 +570,6 @@ export function Tutors() {
         <p style={{ color: '#d3d3d3' }}>Book 1-on-1 sessions with expert tutors • 1 hour slots available</p>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-4 gap-4">
         <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
           <div className="flex items-center justify-between mb-2">
@@ -613,7 +601,6 @@ export function Tutors() {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
@@ -650,7 +637,6 @@ export function Tutors() {
         </div>
       </div>
 
-      {/* Tutors Grid */}
       <div className="grid grid-cols-2 gap-6">
         {filteredTutors.map((tutor) => (
           <div 

@@ -29,7 +29,6 @@ interface DashboardProps {
 }
 
 export function Dashboard({ setCurrentPage }: DashboardProps) {
-  // Performance stats for current employee
   const myPerformance = [
     { 
       label: 'Tasks Completed Today', 
@@ -73,7 +72,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
     },
   ];
 
-  // Tasks assigned to me
   const myTasks = [
     { 
       id: 1, 
@@ -132,7 +130,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
     },
   ];
 
-  // Completed tasks today
   const completedToday = [
     { id: 1, title: 'Converted Emma Brown to active user', time: '10 mins ago', type: 'user-conversion' },
     { id: 2, title: 'Activated Cloud Systems company', time: '45 mins ago', type: 'company-conversion' },
@@ -140,7 +137,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
     { id: 4, title: 'Onboarded Startup Hub Inc', time: '2 hours ago', type: 'company-conversion' },
   ];
 
-  // Team leaderboard
   const teamLeaderboard = [
     { rank: 1, name: 'You (Alex Johnson)', conversions: 47, completionRate: 94, badge: 'gold' },
     { rank: 2, name: 'Sarah Miller', conversions: 45, completionRate: 90, badge: 'silver' },
@@ -149,7 +145,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
     { rank: 5, name: 'Mike Brown', conversions: 35, completionRate: 82, badge: null },
   ];
 
-  // Weekly performance data
   const weeklyData = [
     { id: 'week-mon', day: 'Mon', conversions: 7, target: 10 },
     { id: 'week-tue', day: 'Tue', conversions: 9, target: 10 },
@@ -160,7 +155,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
     { id: 'week-sun', day: 'Sun', conversions: 0, target: 5 },
   ];
 
-  // Performance metrics radar
   const performanceRadar = [
     { metric: 'Speed', value: 85, fullMark: 100 },
     { metric: 'Quality', value: 92, fullMark: 100 },
@@ -169,7 +163,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
     { metric: 'Communication', value: 90, fullMark: 100 },
   ];
 
-  // Task statistics
   const taskStats = [
     { label: 'Pending', count: 23, color: '#d3d3d3' },
     { label: 'In Progress', count: 8, color: '#FFC300' },
@@ -179,7 +172,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
 
   return (
     <div className="space-y-6">
-      {/* Header with Greeting */}
       <div className="flex items-center justify-between">
         <div>
           <h1 
@@ -202,7 +194,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
         </div>
       </div>
 
-      {/* My Performance Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {myPerformance.map((stat) => {
           const Icon = stat.icon;
@@ -224,7 +215,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
                 e.currentTarget.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
               }}
             >
-              {/* Gradient overlay */}
               <div 
                 style={{
                   position: 'absolute',
@@ -253,7 +243,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
                 <p style={{ color: '#6f6f6f', fontSize: '1rem' }}>/ {stat.target}</p>
               </div>
               
-              {/* Progress bar */}
               <div className="mt-3">
                 <div className="w-full h-2 rounded-full" style={{ backgroundColor: '#6f6f6f' }}>
                   <div 
@@ -271,7 +260,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
         })}
       </div>
 
-      {/* Quick Task Summary */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {taskStats.map((stat) => (
           <div 
@@ -290,7 +278,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
         ))}
       </div>
 
-      {/* My Active Tasks */}
       <div className="rounded-lg" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="p-6 flex items-center justify-between" style={{ borderBottom: '1px solid #6f6f6f' }}>
           <div className="flex items-center gap-3">
@@ -415,9 +402,7 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
         </div>
       </div>
 
-      {/* Performance Charts and Leaderboard */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Weekly Performance */}
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-4">
             <div>
@@ -446,7 +431,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
           </ResponsiveContainer>
         </div>
 
-        {/* Performance Radar */}
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-4">
             <div>
@@ -475,9 +459,7 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
         </div>
       </div>
 
-      {/* Team Leaderboard and Completed Tasks */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Team Leaderboard */}
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -536,7 +518,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
           </div>
         </div>
 
-        {/* Completed Today */}
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-3">
@@ -593,7 +574,6 @@ export function Dashboard({ setCurrentPage }: DashboardProps) {
         </div>
       </div>
 
-      {/* Quick Actions for Tasks */}
       <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Quick Actions</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

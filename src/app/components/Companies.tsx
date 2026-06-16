@@ -39,7 +39,6 @@ export function Companies() {
   const [searchTerm, setSearchTerm] = useState('');
   const [showFilterModal, setShowFilterModal] = useState(false);
   
-  // Filter states
   const [filters, setFilters] = useState({
     plan: 'all',
     verified: 'all',
@@ -289,7 +288,6 @@ export function Companies() {
     return matchesSearch && matchesPlan && matchesVerified && matchesIndustry && matchesLocation && matchesStatus && matchesSize;
   });
 
-  // Filter groups for modal
   const filterGroups = [
     {
       id: 'status',
@@ -402,7 +400,6 @@ export function Companies() {
     }
   };
 
-  // If a company is selected, show the detail view
   if (selectedCompanyId !== null) {
     return <CompanyDetailView companyId={selectedCompanyId} onBack={() => setSelectedCompanyId(null)} />;
   }
@@ -446,7 +443,6 @@ export function Companies() {
         </button>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <p style={{ color: '#d3d3d3' }}>Total Companies</p>
@@ -466,10 +462,8 @@ export function Companies() {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
-          {/* Subscription Plan */}
           <div>
             <p className="mb-3" style={{ color: '#d3d3d3' }}>Subscription Plan</p>
             <div className="flex gap-2 flex-wrap">
@@ -520,7 +514,6 @@ export function Companies() {
             </div>
           </div>
 
-          {/* Verification Status */}
           <div>
             <p className="mb-3" style={{ color: '#d3d3d3' }}>Verification Status</p>
             <div className="flex gap-2 flex-wrap">
@@ -580,7 +573,6 @@ export function Companies() {
         </div>
       </div>
 
-      {/* Companies Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         {filteredCompanies.map((company) => (
           <div 
@@ -685,7 +677,6 @@ export function Companies() {
         ))}
       </div>
 
-      {/* Company Details/Add Modal */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center p-4 z-50" style={{ backgroundColor: 'rgba(2, 48, 71, 0.8)' }}>
           <div className="rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#023047', border: '2px solid #FFC300' }}>
@@ -866,7 +857,6 @@ export function Companies() {
         </div>
       )}
 
-      {/* Filter Modal */}
       <FilterModal
         isOpen={showFilterModal}
         onClose={() => setShowFilterModal(false)}

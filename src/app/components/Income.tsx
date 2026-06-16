@@ -50,7 +50,6 @@ export function Income() {
   const [timeRange, setTimeRange] = useState<'week' | 'month' | 'year'>('month');
   const [selectedRevenue, setSelectedRevenue] = useState<'all' | 'company' | 'user' | 'freelancer'>('all');
   
-  // Update Plans tab states
   const [searchQuery, setSearchQuery] = useState('');
   const [filterType, setFilterType] = useState<'all' | 'company' | 'user' | 'freelancer'>('all');
   const [showUpdateModal, setShowUpdateModal] = useState(false);
@@ -59,12 +58,10 @@ export function Income() {
   const [selectedPlan, setSelectedPlan] = useState('');
   const [updatePlansSubTab, setUpdatePlansSubTab] = useState<'plans' | 'coupons'>('plans');
 
-  // Plan Settings states
   const [showEditPlanModal, setShowEditPlanModal] = useState(false);
   const [editingPlan, setEditingPlan] = useState<PlanDetails | null>(null);
   const [editPlanType, setEditPlanType] = useState<'company' | 'user' | 'freelancer'>('company');
 
-  // Revenue Stats with INR pricing
   const revenueStats = {
     total: 1847520,
     monthly: 452300,
@@ -75,7 +72,6 @@ export function Income() {
     freelancers: 270820,
   };
 
-  // Monthly Revenue Trend Data (in INR)
   const monthlyRevenueData = [
     { month: 'Jan', companies: 145000, users: 84000, freelancers: 38000, total: 267000 },
     { month: 'Feb', companies: 158000, users: 92000, freelancers: 42000, total: 292000 },
@@ -85,14 +81,12 @@ export function Income() {
     { month: 'Jun', companies: 208000, users: 118000, freelancers: 56000, total: 382000 },
   ];
 
-  // Revenue Distribution Data
   const revenueDistribution = [
     { name: 'Companies', value: revenueStats.companies, color: '#023047' },
     { name: 'Users', value: revenueStats.users, color: '#FFC300' },
     { name: 'Freelancers', value: revenueStats.freelancers, color: '#6f6f6f' },
   ];
 
-  // Subscription Plans with features and duration
   const [subscriptionPlans, setSubscriptionPlans] = useState<{
     companies: PlanDetails[];
     users: PlanDetails[];
@@ -162,7 +156,6 @@ export function Income() {
     ],
   });
 
-  // Sample entities data
   const [entities] = useState<Entity[]>([
     { id: 1, name: 'Tech Corp', type: 'company', currentPlan: 'Complete Recruit', planPrice: 2499, renewalDate: '2025-01-15', status: 'active', email: 'hr@techcorp.com' },
     { id: 2, name: 'Startup Inc', type: 'company', currentPlan: 'Quick Recruit', planPrice: 999, renewalDate: '2025-02-20', status: 'active', email: 'jobs@startup.com' },
@@ -174,7 +167,6 @@ export function Income() {
     { id: 8, name: 'Emily Davis', type: 'user', currentPlan: 'Elite Plan', planPrice: 99, renewalDate: '2025-02-14', status: 'active', email: 'emily@email.com' },
   ]);
 
-  // Sample coupons data
   const [coupons, setCoupons] = useState<Coupon[]>([
     { id: 1, code: 'WINTER2024', discount: 20, type: 'percentage', applicableTo: 'all', validUntil: '2024-12-31', usageLimit: 100, usageCount: 45, status: 'active' },
     { id: 2, code: 'COMPANY50', discount: 50, type: 'percentage', applicableTo: 'company', validUntil: '2025-01-15', usageLimit: 50, usageCount: 28, status: 'active' },
@@ -192,7 +184,6 @@ export function Income() {
     usageLimit: 100,
   });
 
-  // Recent Transactions
   const transactions: Transaction[] = [
     { id: 1, type: 'company', userName: 'Tech Corp', amount: 2499, date: '2024-12-08', status: 'completed', plan: 'Complete Recruit' },
     { id: 2, type: 'user', userName: 'John Doe', amount: 199, date: '2024-12-08', status: 'completed', plan: 'Pro Plan' },
@@ -411,7 +402,6 @@ export function Income() {
         )}
       </div>
 
-      {/* Main Tabs */}
       <div style={{ borderBottom: '1px solid #6f6f6f' }}>
         <div className="flex gap-6">
           <button
@@ -447,10 +437,8 @@ export function Income() {
         </div>
       </div>
 
-      {/* Revenue Analytics Tab */}
       {activeTab === 'analytics' && (
         <>
-          {/* Time Range Selector */}
           <div className="flex gap-3">
             <button
               onClick={() => setTimeRange('week')}
@@ -487,7 +475,6 @@ export function Income() {
             </button>
           </div>
 
-          {/* Revenue Overview Stats */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <div className="flex items-center justify-between mb-2">
@@ -538,7 +525,6 @@ export function Income() {
             </div>
           </div>
 
-          {/* Revenue Trend Chart */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="flex items-center justify-between mb-6">
               <h2 style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Revenue Trends</h2>
@@ -561,9 +547,7 @@ export function Income() {
             </ResponsiveContainer>
           </div>
 
-          {/* Revenue Distribution & Subscription Plans */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {/* Revenue Distribution Pie Chart */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h2 className="mb-6" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Revenue Distribution</h2>
               <ResponsiveContainer width="100%" height={300}>
@@ -598,11 +582,9 @@ export function Income() {
               </div>
             </div>
 
-            {/* Subscription Plans Overview */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h2 className="mb-6" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Subscription Plans Performance</h2>
               <div className="space-y-4 max-h-96 overflow-y-auto">
-                {/* Company Plans */}
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Building2 className="w-4 h-4" style={{ color: '#023047' }} />
@@ -622,7 +604,6 @@ export function Income() {
                   ))}
                 </div>
 
-                {/* User Plans */}
                 <div>
                   <div className="flex items-center gap-2 mb-2 mt-4">
                     <Users className="w-4 h-4" style={{ color: '#023047' }} />
@@ -642,7 +623,6 @@ export function Income() {
                   ))}
                 </div>
 
-                {/* Freelancer Plans */}
                 <div>
                   <div className="flex items-center gap-2 mb-2 mt-4">
                     <Zap className="w-4 h-4" style={{ color: '#023047' }} />
@@ -665,7 +645,6 @@ export function Income() {
             </div>
           </div>
 
-          {/* Recent Transactions */}
           <div className="rounded-lg overflow-hidden" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="p-6 flex items-center justify-between" style={{ borderBottom: '1px solid #6f6f6f' }}>
               <h2 style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>Recent Transactions</h2>
@@ -769,10 +748,8 @@ export function Income() {
         </>
       )}
 
-      {/* Update Plans Tab */}
       {activeTab === 'update-plans' && (
         <>
-          {/* Stats Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <div className="flex items-center justify-between mb-2">
@@ -821,7 +798,6 @@ export function Income() {
             </div>
           </div>
 
-          {/* Sub Tabs */}
           <div style={{ borderBottom: '1px solid #6f6f6f' }}>
             <div className="flex gap-6">
               <button
@@ -847,10 +823,8 @@ export function Income() {
             </div>
           </div>
 
-          {/* Plans Sub-Tab */}
           {updatePlansSubTab === 'plans' && (
             <>
-              {/* Search and Filters */}
               <div className="flex flex-col sm:flex-row gap-4">
                 <div className="flex-1 relative">
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{ color: '#6f6f6f' }} />
@@ -880,7 +854,6 @@ export function Income() {
                 </select>
               </div>
 
-              {/* Plans Table */}
               <div className="rounded-lg overflow-hidden" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
                 <div className="overflow-x-auto">
                   <table className="w-full">
@@ -947,7 +920,6 @@ export function Income() {
             </>
           )}
 
-          {/* Coupons Sub-Tab */}
           {updatePlansSubTab === 'coupons' && (
             <div className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -1025,10 +997,8 @@ export function Income() {
         </>
       )}
 
-      {/* Plan Settings Tab */}
       {activeTab === 'plan-settings' && (
         <div className="space-y-6">
-          {/* Company Plans */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
@@ -1071,7 +1041,6 @@ export function Income() {
             </div>
           </div>
 
-          {/* User Plans */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
@@ -1112,7 +1081,6 @@ export function Income() {
             </div>
           </div>
 
-          {/* Freelancer Plans */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-3">
@@ -1155,7 +1123,6 @@ export function Income() {
         </div>
       )}
 
-      {/* Update Plan Modal */}
       {showUpdateModal && selectedEntity && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="rounded-lg max-w-md w-full" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -1222,7 +1189,6 @@ export function Income() {
         </div>
       )}
 
-      {/* Create Coupon Modal */}
       {showCouponModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="rounded-lg max-w-md w-full" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -1329,7 +1295,6 @@ export function Income() {
         </div>
       )}
 
-      {/* Edit Plan Modal */}
       {showEditPlanModal && editingPlan && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>

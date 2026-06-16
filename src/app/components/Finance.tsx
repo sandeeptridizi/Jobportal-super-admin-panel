@@ -62,19 +62,16 @@ export function Finance() {
   const [plans, setPlans] = useState<Plan[]>(INITIAL_PLANS);
   const [editFormData, setEditFormData] = useState<Plan | null>(null);
 
-  // Calculate total statistics
   const totalRevenue = plans.reduce((sum, plan) => sum + plan.revenue, 0);
   const totalSubscribers = plans.reduce((sum, plan) => sum + plan.subscribers, 0);
   const averageGrowth = plans.reduce((sum, plan) => sum + plan.growth, 0) / plans.length;
 
-  // Filter plans
   const filteredPlans = plans.filter(plan => {
     const matchesCategory = selectedCategory === 'all' || plan.category === selectedCategory;
     const matchesSearch = plan.name.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
-  // Category breakdown for pie chart
   const categoryBreakdown = Object.entries(
     plans.reduce((acc, plan) => {
       acc[plan.category] = (acc[plan.category] || 0) + plan.revenue;
@@ -82,7 +79,6 @@ export function Finance() {
     }, {} as Record<string, number>)
   ).map(([name, value]) => ({ name, value }));
 
-  // Revenue trend data (mock)
   const revenueTrendData = [
     { id: 'trend-oct', month: 'Oct', revenue: 2100000 },
     { id: 'trend-nov', month: 'Nov', revenue: 2350000 },
@@ -92,7 +88,6 @@ export function Finance() {
     { id: 'trend-mar', month: 'Mar', revenue: 3274532 },
   ];
 
-  // Top performing plans
   const topPerformingPlans = [...plans]
     .sort((a, b) => b.revenue - a.revenue)
     .slice(0, 5)
@@ -135,7 +130,6 @@ export function Finance() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex justify-between items-center">
         <div>
           <h1 style={{ color: '#f6f6f6', fontSize: '2rem', fontWeight: '700' }}>Finance Management</h1>
@@ -158,7 +152,6 @@ export function Finance() {
         </div>
       </div>
 
-      {/* Time Range Selector */}
       <div className="flex gap-2">
         {(['week', 'month', 'quarter', 'year'] as const).map((range) => (
           <button
@@ -176,7 +169,6 @@ export function Finance() {
         ))}
       </div>
 
-      {/* Filters Section - Always Visible */}
       <div
         className="p-6 rounded-xl"
         style={{
@@ -190,7 +182,6 @@ export function Finance() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Search */}
           <div>
             <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
               Search Plans
@@ -215,7 +206,6 @@ export function Finance() {
             </div>
           </div>
 
-          {/* Category Filter */}
           <div>
             <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
               Category
@@ -240,9 +230,7 @@ export function Finance() {
         </div>
       </div>
 
-      {/* Key Metrics Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {/* Total Revenue */}
         <div
           className="p-6 rounded-xl transition-all cursor-pointer"
           style={{
@@ -270,7 +258,6 @@ export function Finance() {
           </p>
         </div>
 
-        {/* Total Subscribers */}
         <div
           className="p-6 rounded-xl transition-all cursor-pointer"
           style={{
@@ -298,7 +285,6 @@ export function Finance() {
           </p>
         </div>
 
-        {/* Active Plans */}
         <div
           className="p-6 rounded-xl transition-all cursor-pointer"
           style={{
@@ -320,7 +306,6 @@ export function Finance() {
           </p>
         </div>
 
-        {/* Average Growth */}
         <div
           className="p-6 rounded-xl transition-all cursor-pointer"
           style={{
@@ -349,9 +334,7 @@ export function Finance() {
         </div>
       </div>
 
-      {/* Charts Row */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Revenue Trend Chart */}
         <div
           className="p-6 rounded-xl"
           style={{
@@ -376,7 +359,6 @@ export function Finance() {
           </ResponsiveContainer>
         </div>
 
-        {/* Category Revenue Distribution */}
         <div
           className="p-6 rounded-xl"
           style={{
@@ -412,7 +394,6 @@ export function Finance() {
         </div>
       </div>
 
-      {/* Top Performing Plans */}
       <div
         className="p-6 rounded-xl"
         style={{
@@ -437,7 +418,6 @@ export function Finance() {
         </ResponsiveContainer>
       </div>
 
-      {/* Plans List */}
       <div
         className="p-6 rounded-xl"
         style={{
@@ -461,7 +441,6 @@ export function Finance() {
                   border: '1px solid #6f6f6f',
                 }}
               >
-                {/* Edit Button */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
@@ -538,7 +517,6 @@ export function Finance() {
         </div>
       </div>
 
-      {/* Recent Transactions */}
       <div
         className="p-6 rounded-xl"
         style={{
@@ -623,7 +601,6 @@ export function Finance() {
         </div>
       </div>
 
-      {/* Plan Details Modal */}
       {selectedPlan && (
         <div
           className="fixed inset-0 flex items-center justify-center z-50"
@@ -695,7 +672,6 @@ export function Finance() {
         </div>
       )}
 
-      {/* Edit Plan Modal */}
       {editingPlan && editFormData && (
         <div
           className="fixed inset-0 flex items-center justify-center z-50"
@@ -718,7 +694,6 @@ export function Finance() {
             </div>
 
             <div className="space-y-4">
-              {/* Plan Name */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Plan Name
@@ -736,7 +711,6 @@ export function Finance() {
                 />
               </div>
 
-              {/* Category */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Category
@@ -762,7 +736,6 @@ export function Finance() {
                 </select>
               </div>
 
-              {/* Price */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Price (₹)
@@ -780,7 +753,6 @@ export function Finance() {
                 />
               </div>
 
-              {/* Type */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Billing Type
@@ -802,7 +774,6 @@ export function Finance() {
                 </select>
               </div>
 
-              {/* Details */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Details
@@ -821,7 +792,6 @@ export function Finance() {
                 />
               </div>
 
-              {/* Subscribers */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Subscribers
@@ -839,7 +809,6 @@ export function Finance() {
                 />
               </div>
 
-              {/* Revenue */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Revenue (₹)
@@ -857,7 +826,6 @@ export function Finance() {
                 />
               </div>
 
-              {/* Growth */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Growth Rate (%)

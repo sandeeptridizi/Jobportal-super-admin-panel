@@ -14,7 +14,6 @@ interface DataPoint {
   state: string;
 }
 
-// Mock data for different categories across Indian states
 const analyticsData: Record<Category, DataPoint[]> = {
   users: [
     { id: '1', lat: 28.6139, lng: 77.2090, name: 'Delhi Users', count: 1250, state: 'Delhi' },
@@ -105,16 +104,12 @@ export function Analytics() {
   const currentData = analyticsData[selectedCategory];
   const currentColor = categories.find(c => c.id === selectedCategory)?.color || '#FFC300';
 
-  // Calculate total count for selected category
   const totalCount = currentData.reduce((sum, point) => sum + point.count, 0);
 
-  // Map projection - simple equirectangular projection for India
-  // India bounds: lat: 8°N to 35°N, lng: 68°E to 97°E
   const mapToScreen = (lat: number, lng: number) => {
     const mapWidth = 600;
     const mapHeight = 700;
     
-    // India bounding box
     const minLat = 6;
     const maxLat = 37;
     const minLng = 67;
@@ -126,7 +121,6 @@ export function Analytics() {
     return { x, y };
   };
 
-  // User Demographics Data
   const demographicsData = [
     { id: 'age-18-24', ageGroup: '18-24', users: 3450, percentage: 28.5 },
     { id: 'age-25-34', ageGroup: '25-34', users: 5240, percentage: 43.2 },
@@ -141,7 +135,6 @@ export function Analytics() {
     { id: 'gender-other', name: 'Other', value: 1020, percentage: 8.4 },
   ];
 
-  // User Medium Data
   const mediumData = [
     { id: 'device-mobile', device: 'Mobile', users: 7850, percentage: 64.7, icon: Smartphone },
     { id: 'device-desktop', device: 'Desktop', users: 3120, percentage: 25.7, icon: Monitor },
@@ -160,13 +153,11 @@ export function Analytics() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div>
         <h1 style={{ color: '#f6f6f6', fontSize: '1.875rem', marginBottom: '0.5rem' }}>Analytics</h1>
         <p style={{ color: '#d3d3d3' }}>Geographical distribution insights across India</p>
       </div>
 
-      {/* User Active Metrics Section */}
       <div 
         className="p-6 rounded-xl"
         style={{
@@ -187,7 +178,6 @@ export function Analytics() {
           </div>
         </div>
 
-        {/* Tabs */}
         <div className="flex items-center gap-4 mb-6">
           <button
             onClick={() => setUserMetricsTab('demographics')}
@@ -219,11 +209,9 @@ export function Analytics() {
           </button>
         </div>
 
-        {/* Tab Content */}
         {userMetricsTab === 'demographics' && (
           <div className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Age Group Distribution */}
               <div
                 className="p-6 rounded-xl"
                 style={{
@@ -252,7 +240,6 @@ export function Analytics() {
                   </BarChart>
                 </ResponsiveContainer>
                 
-                {/* Age Group Stats */}
                 <div className="mt-4 space-y-2">
                   {demographicsData.map((age, index) => (
                     <div key={index} className="flex items-center justify-between">
@@ -276,7 +263,6 @@ export function Analytics() {
                 </div>
               </div>
 
-              {/* Gender Distribution */}
               <div
                 className="p-6 rounded-xl"
                 style={{
@@ -313,7 +299,6 @@ export function Analytics() {
                   </PieChart>
                 </ResponsiveContainer>
 
-                {/* Gender Stats */}
                 <div className="mt-4 space-y-3">
                   {genderData.map((gender, index) => (
                     <div key={index} className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: 'rgba(111, 111, 111, 0.2)' }}>
@@ -338,7 +323,6 @@ export function Analytics() {
         {userMetricsTab === 'medium' && (
           <div className="space-y-6">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-              {/* Device Distribution */}
               <div
                 className="p-6 rounded-xl"
                 style={{
@@ -367,7 +351,6 @@ export function Analytics() {
                   </BarChart>
                 </ResponsiveContainer>
 
-                {/* Device Stats */}
                 <div className="mt-4 space-y-3">
                   {mediumData.map((device, index) => {
                     const Icon = device.icon;
@@ -397,7 +380,6 @@ export function Analytics() {
                 </div>
               </div>
 
-              {/* Browser Distribution */}
               <div
                 className="p-6 rounded-xl"
                 style={{
@@ -434,7 +416,6 @@ export function Analytics() {
                   </PieChart>
                 </ResponsiveContainer>
 
-                {/* Browser Stats */}
                 <div className="mt-4 space-y-3">
                   {browserData.map((browser, index) => (
                     <div key={index} className="flex items-center justify-between p-3 rounded-lg" style={{ backgroundColor: 'rgba(111, 111, 111, 0.2)' }}>
@@ -454,7 +435,6 @@ export function Analytics() {
               </div>
             </div>
 
-            {/* Quick Stats */}
             <div className="grid grid-cols-3 gap-4">
               <div
                 className="p-4 rounded-lg text-center"
@@ -500,7 +480,6 @@ export function Analytics() {
         )}
       </div>
 
-      {/* Category Selection */}
       <div 
         className="p-6 rounded-lg"
         style={{
@@ -532,7 +511,6 @@ export function Analytics() {
         </div>
       </div>
 
-      {/* Map Container */}
       <div 
         className="p-6 rounded-lg"
         style={{
@@ -552,7 +530,6 @@ export function Analytics() {
           </div>
         </div>
 
-        {/* SVG Map with dots */}
         <div className="relative flex justify-center">
           <svg 
             width="600" 
@@ -565,9 +542,7 @@ export function Analytics() {
               padding: '1rem',
             }}
           >
-            {/* India Map Base - Much More Visible */}
             <g>
-              {/* Main India outline - HIGHLY VISIBLE */}
               <path 
                 d="M 180 80 L 200 65 L 225 60 L 245 55 L 270 58 L 290 65 L 310 75 L 330 90 L 345 105 L 358 125 L 368 145 L 378 170 L 388 195 L 395 220 L 400 245 L 402 270 L 405 295 L 408 320 L 410 345 L 412 370 L 413 395 L 414 420 L 413 445 L 410 470 L 405 490 L 398 510 L 388 530 L 375 545 L 360 558 L 342 568 L 322 575 L 300 578 L 280 576 L 262 570 L 245 560 L 230 548 L 218 535 L 208 520 L 200 505 L 193 488 L 188 470 L 185 450 L 183 430 L 182 410 L 182 390 L 183 370 L 185 350 L 188 330 L 192 310 L 197 290 L 203 270 L 210 250 L 217 230 L 225 210 L 233 190 L 242 170 L 250 150 L 258 130 L 265 110 L 270 95 Z" 
                 fill="rgba(2, 48, 71, 0.4)"
@@ -576,7 +551,6 @@ export function Analytics() {
                 opacity="1"
               />
               
-              {/* Kashmir region */}
               <path 
                 d="M 180 80 L 175 95 L 172 110 L 170 125 L 169 140 L 170 155 L 173 170 L 178 185 L 185 200 L 192 210 L 203 220 L 215 228 L 227 234 L 238 237 L 248 235 L 258 230 L 265 220 L 270 210 L 272 198 L 270 186 L 265 175 L 258 165 L 250 155 L 242 145 L 233 135 L 225 125 L 217 115 L 210 105 L 200 95 L 190 88 Z" 
                 fill="rgba(2, 48, 71, 0.3)"
@@ -585,7 +559,6 @@ export function Analytics() {
                 opacity="0.8"
               />
               
-              {/* Northeast states */}
               <path 
                 d="M 408 320 L 415 315 L 423 312 L 432 310 L 442 310 L 452 312 L 460 316 L 467 322 L 472 330 L 475 340 L 476 350 L 475 360 L 472 370 L 467 378 L 460 384 L 452 388 L 442 390 L 432 390 L 423 388 L 415 384 L 410 378 L 408 370 Z" 
                 fill="rgba(2, 48, 71, 0.3)"
@@ -594,7 +567,6 @@ export function Analytics() {
                 opacity="0.8"
               />
               
-              {/* Andaman & Nicobar Islands */}
               <g opacity="0.7">
                 <path 
                   d="M 520 380 L 523 370 L 525 360 L 526 350 L 525 340 L 523 330 L 520 325 L 517 330 L 515 340 L 514 350 L 515 360 L 517 370 Z" 
@@ -610,14 +582,12 @@ export function Analytics() {
                 />
               </g>
               
-              {/* Lakshadweep Islands */}
               <g opacity="0.7">
                 <circle cx="75" cy="410" r="3" fill="rgba(2, 48, 71, 0.3)" stroke={currentColor} strokeWidth="1" />
                 <circle cx="70" cy="425" r="2.5" fill="rgba(2, 48, 71, 0.3)" stroke={currentColor} strokeWidth="1" />
                 <circle cx="68" cy="440" r="2" fill="rgba(2, 48, 71, 0.3)" stroke={currentColor} strokeWidth="1" />
               </g>
               
-              {/* Southern tip (Tamil Nadu/Kerala) */}
               <path 
                 d="M 280 576 L 285 585 L 288 595 L 290 605 L 290 615 L 288 625 L 285 633 L 280 638 L 275 640 L 270 638 L 265 633 L 262 625 L 260 615 L 260 605 L 262 595 L 265 587 L 270 580 Z" 
                 fill="rgba(2, 48, 71, 0.3)"
@@ -627,7 +597,6 @@ export function Analytics() {
               />
             </g>
 
-            {/* State boundary lines - More visible */}
             <g opacity="0.3" stroke={currentColor} strokeWidth="1" fill="none" strokeDasharray="3,3">
               <line x1="245" y1="245" x2="400" y2="245" />
               <line x1="220" y1="320" x2="405" y2="320" />
@@ -638,7 +607,6 @@ export function Analytics() {
               <line x1="300" y1="245" x2="300" y2="520" />
             </g>
 
-            {/* State labels for context */}
             <g opacity="0.5" fill="#d3d3d3" fontSize="11" fontWeight="600">
               <text x="185" y="150" textAnchor="middle">J&K</text>
               <text x="215" y="210" textAnchor="middle">Punjab</text>
@@ -655,7 +623,6 @@ export function Analytics() {
               <text x="240" y="560" textAnchor="middle">Kerala</text>
             </g>
 
-            {/* Data points with enhanced visualization */}
             {currentData.map((point) => {
               const { x, y } = mapToScreen(point.lat, point.lng);
               const isHovered = hoveredPoint?.id === point.id;
@@ -663,7 +630,6 @@ export function Analytics() {
               
               return (
                 <g key={point.id}>
-                  {/* Outer glow ring */}
                   <circle
                     cx={x}
                     cy={y}
@@ -672,7 +638,6 @@ export function Analytics() {
                     opacity="0.1"
                   />
                   
-                  {/* Pulsing effect for hovered point */}
                   {isHovered && (
                     <circle
                       cx={x}
@@ -698,7 +663,6 @@ export function Analytics() {
                     </circle>
                   )}
                   
-                  {/* Main dot with gradient effect */}
                   <circle
                     cx={x}
                     cy={y}
@@ -714,7 +678,6 @@ export function Analytics() {
                     onMouseLeave={() => setHoveredPoint(null)}
                   />
                   
-                  {/* Inner highlight */}
                   <circle
                     cx={x}
                     cy={y}
@@ -727,7 +690,6 @@ export function Analytics() {
                     }}
                   />
                   
-                  {/* Center dot for precision */}
                   <circle
                     cx={x}
                     cy={y}
@@ -742,7 +704,6 @@ export function Analytics() {
               );
             })}
 
-            {/* Scale indicator */}
             <g transform="translate(20, 650)">
               <text x="0" y="0" fill="#d3d3d3" fontSize="10" opacity="0.7">
                 Bubble size represents volume
@@ -756,7 +717,6 @@ export function Analytics() {
             </g>
           </svg>
 
-          {/* Enhanced Tooltip */}
           {hoveredPoint && (
             <div
               className="absolute p-4 rounded-lg shadow-lg"
@@ -814,7 +774,6 @@ export function Analytics() {
           )}
         </div>
 
-        {/* Legend */}
         <div className="mt-6 flex items-center justify-center gap-4">
           <div className="flex items-center gap-2">
             <div 
@@ -840,7 +799,6 @@ export function Analytics() {
         </div>
       </div>
 
-      {/* Top Locations Table */}
       <div 
         className="p-6 rounded-lg"
         style={{

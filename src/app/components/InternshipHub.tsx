@@ -61,7 +61,6 @@ export function InternshipHub() {
 
   const categories = ['all', ...Array.from(new Set(internships.map(i => i.category)))];
 
-  // Filter groups for modal
   const filterGroups = [
     {
       id: 'status',
@@ -154,7 +153,6 @@ export function InternshipHub() {
     }
   };
 
-  // If an internship is selected, show the detail view
   if (selectedInternshipId !== null) {
     return <InternshipDetailView internshipId={selectedInternshipId} onBack={() => setSelectedInternshipId(null)} />;
   }
@@ -198,7 +196,6 @@ export function InternshipHub() {
         </button>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-2">
@@ -238,10 +235,8 @@ export function InternshipHub() {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
-          {/* Category */}
           <div>
             <p className="mb-3" style={{ color: '#d3d3d3' }}>Category</p>
             <div className="flex gap-2 flex-wrap">
@@ -261,7 +256,6 @@ export function InternshipHub() {
             </div>
           </div>
 
-          {/* Subscription Plan */}
           <div>
             <p className="mb-3" style={{ color: '#d3d3d3' }}>Subscription Plan</p>
             <div className="flex gap-2 flex-wrap">
@@ -321,7 +315,6 @@ export function InternshipHub() {
         </div>
       </div>
 
-      {/* Internships Grid */}
       <div className="grid gap-4">
         {filteredInternships.map((internship) => (
           <div 
@@ -412,7 +405,6 @@ export function InternshipHub() {
         ))}
       </div>
 
-      {/* Add Internship Modal */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center p-4 z-50" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
           <div className="rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -483,7 +475,6 @@ export function InternshipHub() {
         </div>
       )}
 
-      {/* Filter Modal */}
       {showFilterModal && (
         <FilterModal
           isOpen={showFilterModal}

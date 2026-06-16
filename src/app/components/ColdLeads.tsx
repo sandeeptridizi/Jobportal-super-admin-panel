@@ -100,7 +100,6 @@ export function ColdLeads() {
   const [selectedLead, setSelectedLead] = useState<Lead | null>(null);
   const [convertData, setConvertData] = useState<{ id: number; type: LeadType; name: string } | null>(null);
 
-  // Filter states
   const [filters, setFilters] = useState({
     status: 'all',
     source: 'all',
@@ -110,7 +109,6 @@ export function ColdLeads() {
     industry: 'all'
   });
 
-  // Employees list
   const employees: Employee[] = [
     { id: 1, name: 'John Doe', role: 'Sales Manager' },
     { id: 2, name: 'Sarah Smith', role: 'Business Development' },
@@ -119,26 +117,20 @@ export function ColdLeads() {
     { id: 5, name: 'David Wilson', role: 'Lead Specialist' },
   ];
 
-  // Sample data for different lead types
   const [leads, setLeads] = useState<Lead[]>([
-    // User Leads
     { id: 1, type: 'user', name: 'Alex Thompson', email: 'alex.t@email.com', phone: '+91 98765 43210', location: 'Mumbai, Maharashtra', source: 'LinkedIn', addedDate: '2024-12-01', status: 'new', assignedTo: 'John Doe', skills: ['React', 'Node.js'], experience: '3 years', lookingFor: 'Full-time Job' },
     { id: 2, type: 'user', name: 'Maria Garcia', email: 'maria.g@email.com', phone: '+91 98765 43211', location: 'Bangalore, Karnataka', source: 'Indeed', addedDate: '2024-12-02', status: 'contacted', assignedTo: 'Sarah Smith', skills: ['Python', 'Django'], experience: '5 years', lookingFor: 'Remote Work' },
     { id: 3, type: 'user', name: 'James Wilson', email: 'james.w@email.com', phone: '+91 98765 43212', location: 'Delhi, NCR', source: 'Referral', addedDate: '2024-12-03', status: 'interested', assignedTo: 'Mike Johnson', skills: ['Java', 'Spring Boot'], experience: '7 years', lookingFor: 'Senior Position' },
     
-    // Company Leads
     { id: 101, type: 'company', name: 'InnovateTech Solutions', email: 'hr@innovatetech.com', phone: '+91 80 4567 8900', location: 'Hyderabad, Telangana', website: 'www.innovatetech.in', contactPerson: 'Rajesh Kumar', industry: 'Technology', source: 'Cold Outreach', addedDate: '2024-12-01', status: 'contacted', assignedTo: 'Sarah Smith', employeeCount: '50-100', hiringNeeds: 'Developers, Designers' },
     { id: 102, type: 'company', name: 'Green Energy Corp', email: 'info@greenenergy.in', phone: '+91 22 1234 5678', location: 'Pune, Maharashtra', website: 'www.greenenergy.in', contactPerson: 'Priya Sharma', industry: 'Energy', source: 'Conference', addedDate: '2024-12-02', status: 'interested', assignedTo: 'John Doe', employeeCount: '100-200', hiringNeeds: 'Engineers, Sales' },
     
-    // Tutor Leads
     { id: 201, type: 'tutor', name: 'Dr. Sarah Johnson', email: 'sarah.j@email.com', phone: '+91 98765 11111', location: 'Chennai, Tamil Nadu', source: 'Website', addedDate: '2024-12-01', status: 'new', assignedTo: 'Emily Davis', specialization: ['React Development', 'JavaScript', 'Web Performance'], experience: '10 years', hourlyRate: 2000, availability: 'Weekdays 6-9 PM' },
     { id: 202, type: 'tutor', name: 'Prof. Michael Chen', email: 'michael.c@email.com', phone: '+91 98765 22222', location: 'Kolkata, West Bengal', source: 'LinkedIn', addedDate: '2024-12-02', status: 'contacted', assignedTo: 'David Wilson', specialization: ['Python', 'Data Science', 'Machine Learning'], experience: '12 years', hourlyRate: 2500, availability: 'Flexible' },
     
-    // Institute Leads
     { id: 301, type: 'institute', name: 'Elite Coaching Academy', email: 'info@elitecoaching.in', phone: '+91 11 2345 6789', location: 'Gurgaon, Haryana', source: 'Referral', addedDate: '2024-12-01', status: 'interested', assignedTo: 'John Doe', instituteType: 'coaching-institute', specialization: ['Engineering Entrance', 'Medical Entrance', 'MBA Prep'], trainingMode: 'hybrid', studentsCapacity: 500 },
     { id: 302, type: 'institute', name: 'Tech Training Hub', email: 'contact@techtraining.in', phone: '+91 80 9876 5432', location: 'Bangalore, Karnataka', source: 'Cold Outreach', addedDate: '2024-12-02', status: 'contacted', assignedTo: 'Sarah Smith', instituteType: 'coaching-institute', specialization: ['Web Development', 'Data Science', 'Cloud Computing'], trainingMode: 'virtual', studentsCapacity: 200 },
     
-    // Personal Trainer Leads
     { id: 401, type: 'personal-trainer', name: 'Fitness Coach Arjun', email: 'arjun@fitpro.in', phone: '+91 98765 33333', location: 'Mumbai, Maharashtra', source: 'Instagram', addedDate: '2024-12-01', status: 'new', assignedTo: 'Emily Davis', expertise: ['Weight Training', 'Cardio', 'Nutrition'], experience: '8 years', certifications: ['ACE Certified', 'NASM'], ratePerSession: 1500 },
     { id: 402, type: 'personal-trainer', name: 'Yoga Guru Priya', email: 'priya@yogabliss.in', phone: '+91 98765 44444', location: 'Pune, Maharashtra', source: 'Referral', addedDate: '2024-12-02', status: 'contacted', assignedTo: 'David Wilson', expertise: ['Yoga', 'Meditation', 'Pranayama'], experience: '15 years', certifications: ['RYT 500', 'Ayurveda Certified'], ratePerSession: 1200 },
   ]);
@@ -158,7 +150,6 @@ export function ColdLeads() {
 
   const [selectedAssignee, setSelectedAssignee] = useState('');
 
-  // Filter leads by type and search
   const filteredLeads = leads.filter(lead => {
     if (lead.type !== activeTab) return false;
     
@@ -170,7 +161,6 @@ export function ColdLeads() {
                               (filters.assignedTo === 'unassigned' ? !lead.assignedTo : lead.assignedTo === filters.assignedTo);
     const matchesLocation = filters.location === 'all' || lead.location.includes(filters.location);
     
-    // Type-specific filters
     if (lead.type === 'company' && filters.industry !== 'all') {
       return matchesSearch && matchesStatus && matchesSource && matchesAssignedTo && matchesLocation && lead.industry === filters.industry;
     }
@@ -183,7 +173,6 @@ export function ColdLeads() {
     return matchesSearch && matchesStatus && matchesSource && matchesAssignedTo && matchesLocation;
   });
 
-  // Calculate stats
   const stats = {
     totalUsers: leads.filter(l => l.type === 'user').length,
     totalCompanies: leads.filter(l => l.type === 'company').length,
@@ -261,7 +250,6 @@ export function ColdLeads() {
         : l
     ));
 
-    // Show success message
     const destination = {
       'user': 'User Management',
       'company': 'Companies',
@@ -487,7 +475,6 @@ export function ColdLeads() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-6">
           <h1 
@@ -540,7 +527,6 @@ export function ColdLeads() {
         </div>
       </div>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f', background: 'radial-gradient(circle at top right, rgba(255, 195, 0, 0.1), #023047)' }}>
           <div className="flex items-center justify-between mb-3">
@@ -598,7 +584,6 @@ export function ColdLeads() {
         </div>
       </div>
 
-      {/* Tabs */}
       <div style={{ borderBottom: '1px solid #6f6f6f' }}>
         <div className="flex gap-6 overflow-x-auto">
           {tabTypes.map((type) => {
@@ -622,7 +607,6 @@ export function ColdLeads() {
         </div>
       </div>
 
-      {/* Search and Filters */}
       <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex gap-4 flex-wrap">
           <div className="flex-1 min-w-[300px] relative">
@@ -652,7 +636,6 @@ export function ColdLeads() {
         </div>
       </div>
 
-      {/* Leads List/Table View */}
       <div className="rounded-lg overflow-hidden" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="overflow-x-auto">
           <table className="w-full">
@@ -833,7 +816,6 @@ export function ColdLeads() {
         </div>
       )}
 
-      {/* Filter Modal */}
       <FilterModal
         isOpen={showFilterModal}
         onClose={() => setShowFilterModal(false)}
@@ -903,7 +885,6 @@ export function ColdLeads() {
         }}
       />
 
-      {/* Detail Modal */}
       {showDetailModal && selectedLead && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -915,7 +896,6 @@ export function ColdLeads() {
             style={{ backgroundColor: '#023047', border: '2px solid #FFC300' }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Modal Header */}
             <div className="flex items-start justify-between mb-6">
               <div className="flex items-center gap-3">
                 <div className="w-16 h-16 rounded-lg flex items-center justify-center" style={{ backgroundColor: '#FFC300' }}>
@@ -934,7 +914,6 @@ export function ColdLeads() {
               </button>
             </div>
 
-            {/* Status */}
             <div className="mb-6">
               <span className="inline-block px-4 py-2 rounded-lg text-sm" style={{ 
                 backgroundColor: getStatusColor(selectedLead.status).bg, 
@@ -945,7 +924,6 @@ export function ColdLeads() {
               </span>
             </div>
 
-            {/* Contact Information */}
             <div className="mb-6">
               <h3 style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem' }}>Contact Information</h3>
               <div className="space-y-3">
@@ -973,7 +951,6 @@ export function ColdLeads() {
               </div>
             </div>
 
-            {/* Type-Specific Information */}
             <div className="mb-6">
               <h3 style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem' }}>
                 {getTabLabel(selectedLead.type)} Details
@@ -981,7 +958,6 @@ export function ColdLeads() {
               {renderLeadTypeSpecificInfo(selectedLead)}
             </div>
 
-            {/* Metadata */}
             <div className="mb-6">
               <h3 style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600', marginBottom: '1rem' }}>Lead Information</h3>
               <div className="grid grid-cols-2 gap-4">
@@ -1000,7 +976,6 @@ export function ColdLeads() {
               </div>
             </div>
 
-            {/* Actions */}
             <div className="flex gap-3 flex-wrap">
               <button
                 onClick={(e) => {
@@ -1055,7 +1030,6 @@ export function ColdLeads() {
         </div>
       )}
 
-      {/* Convert Modal */}
       {showConvertModal && convertData && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -1096,7 +1070,6 @@ export function ColdLeads() {
         </div>
       )}
 
-      {/* Assign Modal */}
       {showAssignModal && selectedLead && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -1156,7 +1129,6 @@ export function ColdLeads() {
         </div>
       )}
 
-      {/* Action Modal */}
       {showActionModal && selectedLead && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -1261,7 +1233,6 @@ export function ColdLeads() {
         </div>
       )}
 
-      {/* Add Lead Modal */}
       {showAddModal && (
         <div 
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -1281,7 +1252,6 @@ export function ColdLeads() {
             </div>
 
             <div className="space-y-4">
-              {/* Lead Type Selection */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Lead Type *
@@ -1308,7 +1278,6 @@ export function ColdLeads() {
                 </div>
               </div>
 
-              {/* Basic Information */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
@@ -1394,7 +1363,6 @@ export function ColdLeads() {
                 </div>
               </div>
 
-              {/* Type-Specific Fields */}
               {activeTab === 'user' && (
                 <div className="pt-4 border-t" style={{ borderColor: '#6f6f6f' }}>
                   <h4 style={{ color: '#FFC300', fontSize: '1rem', fontWeight: '600', marginBottom: '1rem' }}>User Details</h4>
@@ -1663,7 +1631,6 @@ export function ColdLeads() {
                 </div>
               )}
 
-              {/* Notes */}
               <div>
                 <label style={{ color: '#d3d3d3', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
                   Notes (Optional)
@@ -1680,7 +1647,6 @@ export function ColdLeads() {
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => {
-                  // In a real app, this would save the lead
                   alert('Lead added successfully!');
                   setShowAddModal(false);
                 }}

@@ -39,7 +39,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
 
     setIsLoading(true);
     
-    // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
       onSignup();
@@ -48,12 +47,10 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
 
   return (
     <div className="min-h-screen flex" style={{ backgroundColor: '#023047' }}>
-      {/* Left side - Decorative */}
       <div
         className="hidden lg:flex lg:w-2/5 items-center justify-center p-8 relative overflow-hidden"
         style={{ backgroundColor: '#023047' }}
       >
-        {/* Background decorative elements */}
         <div
           style={{
             position: 'absolute',
@@ -79,7 +76,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
           }}
         />
 
-        {/* Content */}
         <div className="relative z-10 max-w-md">
           <div
             className="w-20 h-20 mb-6 rounded-2xl flex items-center justify-center"
@@ -94,7 +90,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
             Get access to comprehensive tools for managing jobs, users, companies, and analytics.
           </p>
 
-          {/* Features List */}
           <div className="space-y-4">
             {[
               'Manage Jobs, Internships & Freelance Gigs',
@@ -118,10 +113,8 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
         </div>
       </div>
 
-      {/* Right side - Signup Form */}
       <div className="w-full lg:w-3/5 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
-          {/* Logo */}
           <div className="flex items-center gap-3 mb-6">
             <div
               className="w-12 h-12 rounded-lg flex items-center justify-center"
@@ -139,7 +132,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
             </div>
           </div>
 
-          {/* Welcome Text */}
           <div className="mb-6">
             <h2 style={{ color: '#f6f6f6', fontSize: '28px', fontWeight: '600', marginBottom: '8px' }}>
               Create Admin Account
@@ -149,7 +141,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
             </p>
           </div>
 
-          {/* Error Message */}
           {error && (
             <div
               className="mb-4 p-4 rounded-lg flex items-start gap-3"
@@ -162,9 +153,7 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
             </div>
           )}
 
-          {/* Signup Form */}
           <form onSubmit={handleSubmit}>
-            {/* Full Name */}
             <div className="mb-4">
               <label
                 htmlFor="fullName"
@@ -206,7 +195,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
               </div>
             </div>
 
-            {/* Email */}
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -248,7 +236,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
               </div>
             </div>
 
-            {/* Phone */}
             <div className="mb-4">
               <label
                 htmlFor="phone"
@@ -290,7 +277,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
               </div>
             </div>
 
-            {/* Password */}
             <div className="mb-4">
               <label
                 htmlFor="password"
@@ -330,7 +316,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
                   onBlur={(e) => e.target.style.borderColor = '#d3d3d3'}
                 />
               </div>
-              {/* Password Strength Indicator */}
               {strength && (
                 <div className="mt-2">
                   <div className="flex gap-1">
@@ -370,7 +355,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
               )}
             </div>
 
-            {/* Confirm Password */}
             <div className="mb-4">
               <label
                 htmlFor="confirmPassword"
@@ -412,7 +396,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
               </div>
             </div>
 
-            {/* Terms and Conditions */}
             <div className="mb-6">
               <label className="flex items-start gap-2 cursor-pointer">
                 <input
@@ -463,7 +446,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
               </label>
             </div>
 
-            {/* Signup Button */}
             <button
               type="submit"
               disabled={isLoading}
@@ -496,7 +478,6 @@ export function Signup({ onSignup, onSwitchToLogin }: SignupProps) {
               {isLoading ? 'Creating Account...' : 'Create Account'}
             </button>
 
-            {/* Login Link */}
             <div className="text-center">
               <span style={{ color: '#d3d3d3', fontSize: '14px' }}>
                 Already have an account?{' '}

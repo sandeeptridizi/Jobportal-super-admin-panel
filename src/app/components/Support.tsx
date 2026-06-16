@@ -269,7 +269,6 @@ export function Support() {
 
   const handleSendResponse = () => {
     if (newResponse.trim() && selectedTicket) {
-      // Add response logic here
       setNewResponse('');
     }
   };
@@ -356,7 +355,6 @@ export function Support() {
   if (selectedTicket) {
     return (
       <div className="space-y-6">
-        {/* Header */}
         <div className="flex items-center justify-between">
           <div>
             <button
@@ -380,11 +378,8 @@ export function Support() {
           </div>
         </div>
 
-        {/* Ticket Details */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* Main Content */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Ticket Info */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
@@ -444,7 +439,6 @@ export function Support() {
               </div>
             </div>
 
-            {/* Responses */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.25rem', fontWeight: '700' }}>
                 Conversation ({selectedTicket.responses.length})
@@ -469,7 +463,6 @@ export function Support() {
                 ))}
               </div>
 
-              {/* Add Response */}
               <div className="space-y-3">
                 <textarea
                   value={newResponse}
@@ -505,9 +498,7 @@ export function Support() {
             </div>
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
-            {/* User Info */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h3 className="mb-4" style={{ color: '#FFC300' }}>Submitted By</h3>
               <div className="space-y-3">
@@ -537,7 +528,6 @@ export function Support() {
               </div>
             </div>
 
-            {/* Actions */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h3 className="mb-4" style={{ color: '#FFC300' }}>Actions</h3>
               <div className="space-y-3">
@@ -596,7 +586,6 @@ export function Support() {
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <h1 
           style={{ 
@@ -619,7 +608,6 @@ export function Support() {
         </button>
       </div>
 
-      {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div 
           className="rounded-lg p-6"
@@ -690,7 +678,6 @@ export function Support() {
         </div>
       </div>
 
-      {/* Search and Filters */}
       <div className="flex flex-col md:flex-row gap-4">
         <div className="flex-1 relative">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5" style={{ color: '#6f6f6f' }} />
@@ -721,7 +708,6 @@ export function Support() {
         </button>
       </div>
 
-      {/* Tickets List */}
       <div className="space-y-4">
         {filteredTickets.map((ticket) => (
           <div
@@ -807,7 +793,6 @@ export function Support() {
         )}
       </div>
 
-      {/* Create Ticket Modal */}
       {showCreateTicket && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -929,7 +914,6 @@ export function Support() {
         </div>
       )}
 
-      {/* Filter Modal */}
       <SupportFilterModal
         isOpen={showFilterModal}
         onClose={() => setShowFilterModal(false)}

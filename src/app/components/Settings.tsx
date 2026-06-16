@@ -23,7 +23,6 @@ export function Settings() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-        {/* Settings Navigation */}
         <div className="lg:col-span-1">
           <div className="rounded-lg p-2" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <button
@@ -84,7 +83,6 @@ export function Settings() {
           </div>
         </div>
 
-        {/* Settings Content */}
         <div className="lg:col-span-3">
           <div className="rounded-lg" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             {activeTab === 'general' && (

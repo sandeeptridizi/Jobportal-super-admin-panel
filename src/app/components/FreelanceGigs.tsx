@@ -57,7 +57,6 @@ export function FreelanceGigs() {
     return matchesSearch && matchesExperience && matchesStatus && matchesCategory && matchesPaymentType && matchesLocation;
   });
 
-  // Filter groups for modal
   const filterGroups = [
     {
       id: 'status',
@@ -126,7 +125,6 @@ export function FreelanceGigs() {
     avgProposals: Math.round(gigs.reduce((sum, g) => sum + g.proposals, 0) / gigs.length),
   };
 
-  // If a gig is selected, show the detail view
   if (selectedGigId !== null) {
     return <FreelanceGigDetailView gigId={selectedGigId} onBack={() => setSelectedGigId(null)} />;
   }
@@ -170,7 +168,6 @@ export function FreelanceGigs() {
         </button>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-2">
@@ -210,7 +207,6 @@ export function FreelanceGigs() {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex gap-2 flex-wrap mb-4">
           <button onClick={() => setExperienceFilter('all')} className="px-4 py-2 rounded-lg transition-colors" style={{ backgroundColor: experienceFilter === 'all' ? '#023047' : '#6f6f6f', color: '#f6f6f6' }}>All Levels</button>
@@ -230,7 +226,6 @@ export function FreelanceGigs() {
         </div>
       </div>
 
-      {/* Gigs Grid */}
       <div className="grid gap-4">
         {filteredGigs.map((gig) => (
           <div 
@@ -322,7 +317,6 @@ export function FreelanceGigs() {
         ))}
       </div>
 
-      {/* Add Gig Modal */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center p-4 z-50" style={{ backgroundColor: 'rgba(0, 0, 0, 0.8)' }}>
           <div className="rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -397,7 +391,6 @@ export function FreelanceGigs() {
         </div>
       )}
 
-      {/* Filter Modal */}
       <FilterModal
         isOpen={showFilterModal}
         onClose={() => setShowFilterModal(false)}

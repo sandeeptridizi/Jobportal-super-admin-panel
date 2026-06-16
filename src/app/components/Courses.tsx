@@ -231,7 +231,6 @@ export function Courses() {
     bestsellers: courses.filter(c => c.bestseller).length
   };
 
-  // Details View
   if (viewMode === 'details' && selectedCourse) {
     return (
       <div className="space-y-6">
@@ -255,7 +254,6 @@ export function Courses() {
 
         <div className="grid grid-cols-3 gap-6">
           <div className="col-span-2 space-y-6">
-            {/* Course Overview */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
               <div className="flex items-start justify-between mb-4">
                 <div className="flex-1">
@@ -309,7 +307,6 @@ export function Courses() {
               </div>
             </div>
 
-            {/* What You'll Learn */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
               <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>What You'll Learn</h3>
               <div className="grid grid-cols-2 gap-3">
@@ -322,7 +319,6 @@ export function Courses() {
               </div>
             </div>
 
-            {/* Topics Covered */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Topics Covered</h3>
               <div className="flex items-center gap-2 flex-wrap">
@@ -334,7 +330,6 @@ export function Courses() {
               </div>
             </div>
 
-            {/* Prerequisites */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Prerequisites</h3>
               <ul className="space-y-2">
@@ -347,7 +342,6 @@ export function Courses() {
               </ul>
             </div>
 
-            {/* Instructors */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Instructors</h3>
               <div className="space-y-3">
@@ -366,7 +360,6 @@ export function Courses() {
             </div>
           </div>
 
-          {/* Sidebar */}
           <div className="space-y-6">
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
               <div className="mb-6">
@@ -437,7 +430,6 @@ export function Courses() {
     );
   }
 
-  // List View
   return (
     <div className="space-y-6">
       <div>
@@ -447,7 +439,6 @@ export function Courses() {
         <p style={{ color: '#d3d3d3' }}>Browse courses published by institutes and personal trainers with complete details</p>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-4 gap-4">
         <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
           <div className="flex items-center justify-between mb-2">
@@ -479,7 +470,6 @@ export function Courses() {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2">
@@ -527,7 +517,6 @@ export function Courses() {
         </div>
       </div>
 
-      {/* Courses Grid */}
       <div className="grid grid-cols-2 gap-6">
         {filteredCourses.map((course) => (
           <div 

@@ -29,10 +29,8 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
 
   return (
     <div className="min-h-screen flex" style={{ backgroundColor: '#023047' }}>
-      {/* Left side - Forgot Password Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
-          {/* Logo */}
           <div className="flex items-center gap-3 mb-8">
             <div
               className="w-12 h-12 rounded-lg flex items-center justify-center"
@@ -52,7 +50,6 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
 
           {!isSuccess ? (
             <>
-              {/* Back to Login Button */}
               <button
                 onClick={onBackToLogin}
                 style={{
@@ -79,7 +76,6 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
                 Back to Login
               </button>
 
-              {/* Header Text */}
               <div className="mb-8">
                 <h2 style={{ color: '#f6f6f6', fontSize: '28px', fontWeight: '600', marginBottom: '8px' }}>
                   Forgot Password?
@@ -89,9 +85,7 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
                 </p>
               </div>
 
-              {/* Forgot Password Form */}
               <form onSubmit={handleSubmit}>
-                {/* Email Field */}
                 <div className="mb-6">
                   <label
                     htmlFor="email"
@@ -134,7 +128,6 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
                   </div>
                 </div>
 
-                {/* Send Reset Link Button */}
                 <button
                   type="submit"
                   disabled={isLoading}
@@ -170,7 +163,6 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
               </form>
             </>
           ) : (
-            /* Success Message */
             <div className="text-center">
               <div
                 className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center"
@@ -228,7 +220,6 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
                 Back to Login
               </button>
 
-              {/* Resend Link */}
               <div className="mt-6">
                 <span style={{ color: '#d3d3d3', fontSize: '14px' }}>
                   Didn't receive the email?{' '}
@@ -257,12 +248,10 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
         </div>
       </div>
 
-      {/* Right side - Decorative */}
       <div
         className="hidden lg:flex lg:w-1/2 items-center justify-center p-8 relative overflow-hidden"
         style={{ backgroundColor: '#023047' }}
       >
-        {/* Background decorative elements */}
         <div
           style={{
             position: 'absolute',
@@ -288,7 +277,6 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
           }}
         />
 
-        {/* Content */}
         <div className="relative z-10 max-w-md text-center">
           <div
             className="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center"
@@ -306,7 +294,6 @@ export function ForgotPassword({ onBackToLogin }: ForgotPasswordProps) {
             Secure password reset process to regain access to your admin dashboard quickly and safely.
           </p>
 
-          {/* Security Features */}
           <div className="mt-12 space-y-4">
             <div
               className="p-4 rounded-lg text-left"

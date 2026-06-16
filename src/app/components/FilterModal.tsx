@@ -43,7 +43,6 @@ export function FilterModal({
         className="rounded-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto" 
         style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}
       >
-        {/* Header */}
         <div 
           className="p-6 sticky top-0 flex items-center justify-between" 
           style={{ backgroundColor: '#023047', borderBottom: '1px solid #6f6f6f', zIndex: 10 }}
@@ -70,7 +69,6 @@ export function FilterModal({
           </button>
         </div>
 
-        {/* Filter Groups */}
         <div className="p-6 space-y-6">
           {filterGroups.map((group) => {
             const filterType = group.type || 'buttons';
@@ -104,7 +102,6 @@ export function FilterModal({
                   </div>
                 )}
 
-                {/* Dropdown for Type */}
                 {filterType === 'dropdown' ? (
                   <select
                     value={activeFilters[group.id] || 'all'}
@@ -123,7 +120,6 @@ export function FilterModal({
                     ))}
                   </select>
                 ) : (
-                  /* Button Grid for Status and Search Results */
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {filteredOptions.map((option) => {
                       const isActive = activeFilters[group.id] === option.value;
@@ -157,7 +153,6 @@ export function FilterModal({
           })}
         </div>
 
-        {/* Footer */}
         <div 
           className="p-6 sticky bottom-0 flex gap-3 justify-end" 
           style={{ backgroundColor: '#023047', borderTop: '1px solid #6f6f6f' }}

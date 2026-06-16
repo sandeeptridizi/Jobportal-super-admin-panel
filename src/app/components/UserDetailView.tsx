@@ -35,20 +35,17 @@ export function UserDetailView({ userId, onBack, onViewJob }: UserDetailViewProp
     isVerified: true,
     isPro: true,
     
-    // Profile details
     experience: '6 years',
     education: 'BS Computer Science - MIT',
     currentPosition: 'Senior React Developer at Tech Startup',
     skills: ['React', 'TypeScript', 'Node.js', 'Redux', 'GraphQL', 'AWS', 'Docker', 'MongoDB'],
     bio: 'Experienced software engineer with a passion for building scalable web applications. Specialized in React and modern JavaScript frameworks.',
     
-    // Resume
     resumeUrl: '#',
     portfolioUrl: 'johnsmith.dev',
     linkedIn: 'linkedin.com/in/johnsmith',
     github: 'github.com/johnsmith',
     
-    // Statistics
     totalApplications: 15,
     pendingApplications: 5,
     shortlistedApplications: 4,
@@ -162,7 +159,6 @@ export function UserDetailView({ userId, onBack, onViewJob }: UserDetailViewProp
         </div>
       </div>
 
-      {/* Stats Cards */}
       <div className="grid grid-cols-2 md:grid-cols-6 gap-4">
         <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between mb-2">
@@ -208,7 +204,6 @@ export function UserDetailView({ userId, onBack, onViewJob }: UserDetailViewProp
         </div>
       </div>
 
-      {/* Tabs */}
       <div style={{ borderBottom: '1px solid #6f6f6f' }}>
         <div className="flex gap-6">
           <button
@@ -244,7 +239,6 @@ export function UserDetailView({ userId, onBack, onViewJob }: UserDetailViewProp
         </div>
       </div>
 
-      {/* Overview Tab */}
       {activeTab === 'overview' && (
         <div className="space-y-6">
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -338,7 +332,6 @@ export function UserDetailView({ userId, onBack, onViewJob }: UserDetailViewProp
         </div>
       )}
 
-      {/* Applications Tab */}
       {activeTab === 'applications' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
@@ -402,7 +395,6 @@ export function UserDetailView({ userId, onBack, onViewJob }: UserDetailViewProp
         </div>
       )}
 
-      {/* Activity Log Tab */}
       {activeTab === 'activity' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between mb-4">

@@ -8,7 +8,6 @@ type ReportCategory = 'jobs' | 'internships' | 'freelance' | 'companies' | 'user
 export function Reports() {
   const [activeCategory, setActiveCategory] = useState<ReportCategory>('jobs');
 
-  // Jobs Report Data
   const jobsMonthlyData = [
     { month: 'Jan', posted: 85, applications: 680, filled: 12 },
     { month: 'Feb', posted: 95, applications: 780, filled: 15 },
@@ -26,7 +25,6 @@ export function Reports() {
     { category: 'Education', count: 150, applications: 600 },
   ];
 
-  // Internships Report Data
   const internshipsMonthlyData = [
     { month: 'Jan', posted: 25, applications: 220, placed: 8 },
     { month: 'Feb', posted: 30, applications: 280, placed: 10 },
@@ -41,7 +39,6 @@ export function Reports() {
     { name: 'Unpaid', value: 54 },
   ];
 
-  // Freelance Report Data
   const freelanceMonthlyData = [
     { month: 'Jan', posted: 45, proposals: 380, completed: 28 },
     { month: 'Feb', posted: 52, proposals: 450, completed: 32 },
@@ -57,7 +54,6 @@ export function Reports() {
     { level: 'Expert', count: 95 },
   ];
 
-  // Companies Report Data
   const companiesMonthlyData = [
     { month: 'Jan', joined: 12, activeJobs: 85 },
     { month: 'Feb', joined: 15, activeJobs: 95 },
@@ -75,7 +71,6 @@ export function Reports() {
     { industry: 'Other', count: 136 },
   ];
 
-  // Users Report Data
   const usersMonthlyData = [
     { month: 'Jan', candidates: 320, employers: 45 },
     { month: 'Feb', candidates: 380, employers: 52 },
@@ -92,7 +87,6 @@ export function Reports() {
     { week: 'Week 4', activeUsers: 1580, applications: 410 },
   ];
 
-  // Users Growth Data (Enhanced)
   const usersGrowthData = [
     { month: 'Jan', total: 365, candidates: 320, employers: 45, proUsers: 28, verifiedUsers: 15 },
     { month: 'Feb', total: 432, candidates: 380, employers: 52, proUsers: 35, verifiedUsers: 22 },
@@ -120,7 +114,6 @@ export function Reports() {
     { month: 'Jun', growthRate: 19.2 },
   ];
 
-  // Categories Report Data
   const categoriesGrowthData = [
     { month: 'Jan', added: 5, listings: 320 },
     { month: 'Feb', added: 8, listings: 380 },
@@ -156,7 +149,6 @@ export function Reports() {
         </button>
       </div>
 
-      {/* Category Menu Bar */}
       <div className="rounded-lg" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex overflow-x-auto" style={{ borderBottom: '1px solid #6f6f6f' }}>
           <button
@@ -234,10 +226,8 @@ export function Reports() {
         </div>
       </div>
 
-      {/* Jobs Reports */}
       {activeCategory === 'jobs' && (
         <>
-          {/* Key Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <div className="flex items-center justify-between mb-2">
@@ -285,7 +275,6 @@ export function Reports() {
             </div>
           </div>
 
-          {/* Charts */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="mb-6">
               <h3 style={{ color: '#FFC300' }}>Job Posting Trends</h3>
@@ -349,7 +338,6 @@ export function Reports() {
         </>
       )}
 
-      {/* Internships Reports */}
       {activeCategory === 'internships' && (
         <>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -471,7 +459,6 @@ export function Reports() {
         </>
       )}
 
-      {/* Freelance Reports */}
       {activeCategory === 'freelance' && (
         <>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -583,7 +570,6 @@ export function Reports() {
         </>
       )}
 
-      {/* Companies Reports */}
       {activeCategory === 'companies' && (
         <>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -704,7 +690,6 @@ export function Reports() {
         </>
       )}
 
-      {/* Users Reports */}
       {activeCategory === 'users' && (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -754,7 +739,6 @@ export function Reports() {
             </div>
           </div>
 
-          {/* Additional Growth Metrics */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <div className="flex items-center justify-between mb-2">
@@ -905,7 +889,6 @@ export function Reports() {
             </div>
           </div>
 
-          {/* User Segment Analysis */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="mb-6">
               <h3 style={{ color: '#FFC300' }}>User Segment Trends</h3>
@@ -926,7 +909,6 @@ export function Reports() {
         </>
       )}
 
-      {/* Categories Reports */}
       {activeCategory === 'categories' && (
         <>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">

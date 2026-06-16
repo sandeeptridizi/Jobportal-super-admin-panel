@@ -24,7 +24,6 @@ export function JobManagement() {
   const [searchTerm, setSearchTerm] = useState('');
   const [showFilterModal, setShowFilterModal] = useState(false);
   
-  // Filter states
   const [filters, setFilters] = useState({
     type: 'all',
     plan: 'all',
@@ -73,12 +72,10 @@ export function JobManagement() {
     'Quick Recruit': jobs.filter(j => j.plan === 'Quick Recruit').length,
   };
 
-  // Extract unique values from data
   const uniqueCategories = [...new Set(jobs.map(j => j.category))];
   const uniqueLocations = [...new Set(jobs.map(j => j.location))];
   const uniqueStatuses = [...new Set(jobs.map(j => j.status))];
 
-  // Create filter groups for FilterModal
   const filterGroups = [
     {
       id: 'category',
@@ -174,7 +171,6 @@ export function JobManagement() {
     }
   };
 
-  // If a job is selected, show the detail view
   if (selectedJobId !== null) {
     return <JobDetailView jobId={selectedJobId} onBack={() => setSelectedJobId(null)} />;
   }
@@ -238,14 +234,12 @@ export function JobManagement() {
         </button>
       </div>
 
-      {/* Job Type Filters */}
       <div className="rounded-lg p-4" style={{ 
         background: 'radial-gradient(ellipse at top left, rgba(2, 48, 71, 0.8) 0%, #023047 50%, rgba(2, 48, 71, 0.9) 100%)', 
         border: '1px solid #6f6f6f',
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
       }}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-4">
-          {/* Job Type */}
           <div>
             <p className="mb-3" style={{ color: '#d3d3d3' }}>Job Type</p>
             <div className="flex gap-2 flex-wrap">
@@ -291,7 +285,6 @@ export function JobManagement() {
             </div>
           </div>
 
-          {/* Subscription Plan */}
           <div>
             <p className="mb-3" style={{ color: '#d3d3d3' }}>Subscription Plan</p>
             <div className="flex gap-2 flex-wrap">
@@ -387,7 +380,6 @@ export function JobManagement() {
         </div>
       </div>
 
-      {/* Jobs Grid */}
       <div className="grid gap-4">
         {filteredJobs.map((job) => (
           <div 
@@ -487,7 +479,6 @@ export function JobManagement() {
         ))}
       </div>
 
-      {/* Add Job Modal */}
       {showModal && (
         <div className="fixed inset-0 flex items-center justify-center p-4 z-50" style={{ 
           background: 'radial-gradient(ellipse at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.95) 100%)',
@@ -641,7 +632,6 @@ export function JobManagement() {
         </div>
       )}
 
-      {/* FilterModal */}
       <FilterModal
         isOpen={showFilterModal}
         onClose={() => setShowFilterModal(false)}

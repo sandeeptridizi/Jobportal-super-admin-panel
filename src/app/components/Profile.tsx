@@ -44,12 +44,10 @@ export function Profile() {
 
   const handleSave = () => {
     setIsEditing(false);
-    // Save logic here
   };
 
   return (
     <div className="space-y-6">
-      {/* Header */}
       <div className="flex items-center justify-between">
         <h1 
           style={{ 
@@ -93,10 +91,8 @@ export function Profile() {
         )}
       </div>
 
-      {/* Profile Card */}
       <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex items-start gap-6">
-          {/* Avatar */}
           <div className="relative">
             <div 
               className="w-32 h-32 rounded-full flex items-center justify-center"
@@ -114,7 +110,6 @@ export function Profile() {
             )}
           </div>
 
-          {/* Basic Info */}
           <div className="flex-1">
             <div className="flex items-start justify-between mb-4">
               <div>
@@ -176,7 +171,6 @@ export function Profile() {
         </div>
       </div>
 
-      {/* Tabs */}
       <div style={{ borderBottom: '1px solid #6f6f6f' }}>
         <div className="flex gap-6">
           <button
@@ -212,7 +206,6 @@ export function Profile() {
         </div>
       </div>
 
-      {/* Profile Information Tab */}
       {activeTab === 'profile' && (
         <div className="space-y-6">
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -296,7 +289,6 @@ export function Profile() {
             </div>
           </div>
 
-          {/* Activity Log */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <h3 className="mb-4" style={{ color: '#FFC300' }}>Recent Activity</h3>
             <div className="space-y-3">
@@ -328,7 +320,6 @@ export function Profile() {
         </div>
       )}
 
-      {/* Security Tab */}
       {activeTab === 'security' && (
         <div className="space-y-6">
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -436,7 +427,6 @@ export function Profile() {
         </div>
       )}
 
-      {/* Preferences Tab */}
       {activeTab === 'preferences' && (
         <div className="space-y-6">
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
@@ -605,7 +595,6 @@ export function Profile() {
         </div>
       )}
 
-      {/* Change Password Modal */}
       {showPasswordModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
           <div className="rounded-lg max-w-md w-full" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>

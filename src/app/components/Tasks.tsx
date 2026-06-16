@@ -529,7 +529,6 @@ export function Tasks() {
     );
   }
 
-  // Render Company BGV View
   if (viewMode === 'company-bgv') {
     return (
       <div className="space-y-6">
@@ -1042,9 +1041,7 @@ export function Tasks() {
     );
   }
 
-  // Render Quick Recruit View
   if (viewMode === 'quick-recruit') {
-    // Job Details View
     if (quickRecruitView === 'job-details') {
       return (
         <div className="space-y-6">
@@ -1068,7 +1065,6 @@ export function Tasks() {
 
           <div className="grid grid-cols-3 gap-6">
             <div className="col-span-2 space-y-6">
-              {/* Job Overview */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Job Overview</h3>
                 <div className="grid grid-cols-2 gap-4 mb-4">
@@ -1116,7 +1112,6 @@ export function Tasks() {
                 </div>
               </div>
 
-              {/* Interview Rounds */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <h3 className="mb-4 flex items-center gap-2" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>
                   <Target className="w-5 h-5" />
@@ -1170,7 +1165,6 @@ export function Tasks() {
                 </div>
               </div>
 
-              {/* Company Requirements */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
                 <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Special Requirements</h3>
                 <div className="space-y-3">
@@ -1190,7 +1184,6 @@ export function Tasks() {
               </div>
             </div>
 
-            {/* Sidebar */}
             <div className="space-y-6">
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Company Info</h3>
@@ -1268,7 +1261,6 @@ export function Tasks() {
       );
     }
 
-    // View Profile View
     if (quickRecruitView === 'view-profile') {
       return (
         <div className="space-y-6">
@@ -1292,7 +1284,6 @@ export function Tasks() {
 
           <div className="grid grid-cols-3 gap-6">
             <div className="col-span-2 space-y-6">
-              {/* Profile Overview */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <div className="flex items-start gap-6 mb-6">
                   <div className="w-24 h-24 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: 'rgba(255, 195, 0, 0.2)', color: '#FFC300', fontSize: '2.5rem', fontWeight: '700' }}>
@@ -1332,7 +1323,6 @@ export function Tasks() {
                 </div>
               </div>
 
-              {/* Skills */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Technical Skills</h3>
                 <div className="space-y-4">
@@ -1368,7 +1358,6 @@ export function Tasks() {
                 </div>
               </div>
 
-              {/* Work Experience */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
                 <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Work Experience</h3>
                 <div className="space-y-4">
@@ -1411,7 +1400,6 @@ export function Tasks() {
                 </div>
               </div>
 
-              {/* Education */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
                 <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Education</h3>
                 <div className="space-y-3">
@@ -1429,7 +1417,6 @@ export function Tasks() {
               </div>
             </div>
 
-            {/* Sidebar */}
             <div className="space-y-6">
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Profile Stats</h3>
@@ -1519,7 +1506,6 @@ export function Tasks() {
       );
     }
 
-    // Schedule Interview View
     if (quickRecruitView === 'schedule-interview') {
       return (
         <div className="space-y-6">
@@ -1543,7 +1529,6 @@ export function Tasks() {
 
           <div className="grid grid-cols-3 gap-6">
             <div className="col-span-2 space-y-6">
-              {/* Interview Round Selection */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Select Interview Round</h3>
                 <div className="space-y-3">
@@ -1601,7 +1586,6 @@ export function Tasks() {
                 </div>
               </div>
 
-              {/* Date & Time Selection */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Select Date & Time</h3>
                 <div className="grid grid-cols-2 gap-4 mb-4">
@@ -1650,7 +1634,6 @@ export function Tasks() {
                 </div>
               </div>
 
-              {/* Interview Details */}
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
                 <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Interview Details</h3>
                 <div className="space-y-4">
@@ -1693,7 +1676,6 @@ export function Tasks() {
               </div>
             </div>
 
-            {/* Sidebar */}
             <div className="space-y-6">
               <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
                 <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Candidate Info</h3>
@@ -1771,7 +1753,6 @@ export function Tasks() {
       );
     }
 
-    // Find Candidates View
     if (quickRecruitView === 'find-candidates') {
       return (
         <div className="space-y-6">
@@ -1793,7 +1774,6 @@ export function Tasks() {
             </div>
           </div>
 
-          {/* Search & Filters */}
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
             <h3 className="mb-4" style={{ color: '#FFC300', fontSize: '1.125rem', fontWeight: '600' }}>Search Platform Users</h3>
             <div className="grid grid-cols-4 gap-4">
@@ -1842,7 +1822,6 @@ export function Tasks() {
             </div>
           </div>
 
-          {/* Candidate Results */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <h3 style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Matching Candidates (127 found)</h3>
@@ -1854,7 +1833,6 @@ export function Tasks() {
               </select>
             </div>
 
-            {/* Candidate Card 1 */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-start gap-4 flex-1">
@@ -1931,7 +1909,6 @@ export function Tasks() {
               </div>
             </div>
 
-            {/* Candidate Card 2 */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-start gap-4 flex-1">
@@ -2008,7 +1985,6 @@ export function Tasks() {
               </div>
             </div>
 
-            {/* Candidate Card 3 */}
             <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
               <div className="flex items-start justify-between mb-4">
                 <div className="flex items-start gap-4 flex-1">
@@ -2088,7 +2064,6 @@ export function Tasks() {
       );
     }
 
-    // Job List View (default)
     return (
       <div className="space-y-6">
         <div className="flex items-center justify-between">
@@ -2116,7 +2091,6 @@ export function Tasks() {
           </div>
         </div>
 
-        {/* Stats Cards */}
         <div className="grid grid-cols-4 gap-4">
           <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}>
             <div className="flex items-center justify-between mb-2">
@@ -2148,7 +2122,6 @@ export function Tasks() {
           </div>
         </div>
 
-        {/* Filters */}
         <div className="flex items-center gap-3">
           <select className="px-4 py-2 rounded-lg outline-none" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f', color: '#f6f6f6' }}>
             <option>All Status</option>
@@ -2183,9 +2156,7 @@ export function Tasks() {
           </div>
         </div>
 
-        {/* Quick Recruit Jobs List */}
         <div className="space-y-4">
-          {/* Job Card 1 - Finding Candidates */}
           <div className="rounded-lg p-6 cursor-pointer transition-all" style={{ backgroundColor: '#023047', border: '1px solid #FFC300' }}
             onMouseEnter={(e) => e.currentTarget.style.borderColor = '#FFC300'}
             onMouseLeave={(e) => e.currentTarget.style.borderColor = '#FFC300'}
@@ -2272,7 +2243,6 @@ export function Tasks() {
             </div>
           </div>
 
-          {/* Job Card 2 - Interviewing */}
           <div className="rounded-lg p-6 cursor-pointer transition-all" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}
             onMouseEnter={(e) => e.currentTarget.style.borderColor = '#FFC300'}
             onMouseLeave={(e) => e.currentTarget.style.borderColor = '#6f6f6f'}
@@ -2358,7 +2328,6 @@ export function Tasks() {
             </div>
           </div>
 
-          {/* Job Card 3 - Offer Stage */}
           <div className="rounded-lg p-6 cursor-pointer transition-all" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}
             onMouseEnter={(e) => e.currentTarget.style.borderColor = '#FFC300'}
             onMouseLeave={(e) => e.currentTarget.style.borderColor = '#6f6f6f'}
@@ -2444,7 +2413,6 @@ export function Tasks() {
             </div>
           </div>
 
-          {/* Job Card 4 - Screening */}
           <div className="rounded-lg p-6 cursor-pointer transition-all" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}
             onMouseEnter={(e) => e.currentTarget.style.borderColor = '#FFC300'}
             onMouseLeave={(e) => e.currentTarget.style.borderColor = '#6f6f6f'}
@@ -2534,7 +2502,6 @@ export function Tasks() {
     );
   }
 
-  // Render Performance & Leaderboard View
   if (viewMode === 'performance-leaderboard') {
     const weeklyData = [
       { day: 'Mon', tasks: 7, target: 10 },
@@ -2583,7 +2550,6 @@ export function Tasks() {
           </div>
         </div>
 
-        {/* Performance Stats */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="flex items-center justify-between mb-4">
@@ -2678,7 +2644,6 @@ export function Tasks() {
           </div>
         </div>
 
-        {/* Charts */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
             <div className="flex items-center justify-between mb-4">
@@ -2734,7 +2699,6 @@ export function Tasks() {
           </div>
         </div>
 
-        {/* Achievements */}
         <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Recent Achievements</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -2768,7 +2732,6 @@ export function Tasks() {
           </div>
         </div>
 
-        {/* Team Leaderboard */}
         <div className="rounded-lg" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
           <div className="p-6" style={{ borderBottom: '1px solid #6f6f6f' }}>
             <div className="flex items-center gap-3">
@@ -2834,7 +2797,6 @@ export function Tasks() {
     );
   }
 
-  // Default Tasks View
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -2856,7 +2818,6 @@ export function Tasks() {
         </div>
       </div>
 
-      {/* Quick Actions */}
       <div className="rounded-lg p-6" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <h3 className="mb-4" style={{ color: '#f6f6f6', fontSize: '1.125rem', fontWeight: '600' }}>Quick Actions</h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -2931,7 +2892,6 @@ export function Tasks() {
         </div>
       </div>
 
-      {/* Quick Stats */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <div 
           className="rounded-lg p-4 cursor-pointer transition-all"
@@ -3005,7 +2965,6 @@ export function Tasks() {
         </div>
       </div>
 
-      {/* Search Bar */}
       <div className="rounded-lg p-4" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="flex items-center gap-3">
           <Search className="w-5 h-5" style={{ color: '#6f6f6f' }} />
@@ -3021,7 +2980,6 @@ export function Tasks() {
         </div>
       </div>
 
-      {/* Tasks List */}
       <div className="rounded-lg" style={{ backgroundColor: '#023047', border: '1px solid #6f6f6f' }}>
         <div className="p-6" style={{ borderBottom: '1px solid #6f6f6f' }}>
           <div className="flex items-center justify-between">
@@ -3164,7 +3122,6 @@ export function Tasks() {
         </div>
       </div>
 
-      {/* Task Detail Modal */}
       {selectedTask && (
         <div 
           className="fixed inset-0 flex items-center justify-center z-50"

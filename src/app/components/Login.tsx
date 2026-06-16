@@ -20,7 +20,6 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
 
     setIsLoading(true);
     
-    // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
       onLogin();
@@ -29,10 +28,8 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
 
   return (
     <div className="min-h-screen flex" style={{ backgroundColor: '#023047' }}>
-      {/* Left side - Login Form */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-8">
         <div className="w-full max-w-md">
-          {/* Logo */}
           <div className="flex items-center gap-3 mb-8">
             <div
               className="w-12 h-12 rounded-lg flex items-center justify-center"
@@ -50,7 +47,6 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
             </div>
           </div>
 
-          {/* Welcome Text */}
           <div className="mb-8">
             <h2 style={{ color: '#f6f6f6', fontSize: '28px', fontWeight: '600', marginBottom: '8px' }}>
               Welcome Back
@@ -60,7 +56,6 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
             </p>
           </div>
 
-          {/* Error Message */}
           {error && (
             <div
               className="mb-6 p-4 rounded-lg flex items-start gap-3"
@@ -73,9 +68,7 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
             </div>
           )}
 
-          {/* Login Form */}
           <form onSubmit={handleSubmit}>
-            {/* Email Field */}
             <div className="mb-4">
               <label
                 htmlFor="email"
@@ -117,7 +110,6 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
               </div>
             </div>
 
-            {/* Password Field */}
             <div className="mb-4">
               <label
                 htmlFor="password"
@@ -159,7 +151,6 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
               </div>
             </div>
 
-            {/* Remember Me & Forgot Password */}
             <div className="flex items-center justify-between mb-6">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
@@ -194,7 +185,6 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
               </button>
             </div>
 
-            {/* Login Button */}
             <button
               type="submit"
               disabled={isLoading}
@@ -227,7 +217,6 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
               {isLoading ? 'Signing in...' : 'Sign In'}
             </button>
 
-            {/* Sign Up Link */}
             <div className="text-center">
               <span style={{ color: '#d3d3d3', fontSize: '14px' }}>
                 Don't have an account?{' '}
@@ -252,12 +241,10 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
         </div>
       </div>
 
-      {/* Right side - Decorative */}
       <div
         className="hidden lg:flex lg:w-1/2 items-center justify-center p-8 relative overflow-hidden"
         style={{ backgroundColor: '#023047' }}
       >
-        {/* Background decorative elements */}
         <div
           style={{
             position: 'absolute',
@@ -283,7 +270,6 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
           }}
         />
 
-        {/* Content */}
         <div className="relative z-10 max-w-md text-center">
           <div
             className="w-20 h-20 mx-auto mb-6 rounded-2xl flex items-center justify-center"
@@ -298,7 +284,6 @@ export function Login({ onLogin, onSwitchToSignup, onSwitchToForgotPassword }: L
             Access powerful tools to manage jobs, internships, freelance gigs, users, and companies all in one place.
           </p>
 
-          {/* Stats */}
           <div className="grid grid-cols-3 gap-4 mt-12">
             <div
               className="p-4 rounded-lg"
